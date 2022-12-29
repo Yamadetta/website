@@ -2,6 +2,8 @@ import Main from "@/pages/Main";
 import Articles from "@/pages/Articles";
 import Projects from "@/pages/Projects";
 import Page404 from "@/pages/Page404";
+import ProjectPage from "@/pages/ProjectPage";
+
 
 import { createRouter, createWebHistory } from "vue-router";
 
@@ -20,6 +22,14 @@ const routeOptions = [
     component: Projects,
     meta: {
       title: 'Портфолио'
+    }
+  },
+  {
+    path: '/projects/:name',
+    name: "ProjectPage",
+    component: ProjectPage,
+    meta: {
+      title: 'Проект'
     }
   },
   {

@@ -1,12 +1,12 @@
 <template>
-  <basic-card>
+  <header>
     <div class="logo"><router-link to="/">yamadetta</router-link></div>
     <nav>
-      <router-link to="/">Главная</router-link>
-      <router-link to="/projects">Портфолио</router-link>
-      <router-link to="/articles">Статьи</router-link>
+      <router-link class="underline" to="/">Главная</router-link>
+      <router-link class="underline" to="/projects">Портфолио</router-link>
+      <router-link class="underline" to="/articles">Статьи</router-link>
     </nav>
-  </basic-card>
+  </header>
 </template>
 
 <script>
@@ -15,12 +15,18 @@ export default {};
 
 
 <style lang="scss" scoped>
-.card {
+header {
   display: flex;
   justify-content: space-between;
   width: 100%;
 
   font-size: 1.2rem;
+
+  color: var(--white-text-color);
+  background-color: #2f244b;
+  box-shadow: 1px 3px 6px #2f244b;
+
+  padding: 1rem;
 }
 
 a {
@@ -32,32 +38,9 @@ nav {
   display: flex;
   gap: 1rem;
 
-  a {
-    position: relative;
-
+  .router-link-active {
     &::after {
-      content: "";
-      height: 2px;
-      width: 0;
-      background-color: var(--white-text-color);
-
-      position: absolute;
-      left: 0;
-      bottom: 0;
-
-      transition: width 0.2s ease-out;
-    }
-
-    &:hover {
-      &::after {
-        width: 100%;
-      }
-    }
-
-    &.router-link-active {
-      &::after {
-        width: 100%;
-      }
+      width: 100%;
     }
   }
 }

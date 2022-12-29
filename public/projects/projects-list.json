@@ -21,11 +21,11 @@
         "percentage": "70%"
       }
     ],
-    "preview-image": {
-      "mobile": "/preview/mobile.jpg",
-      "desktop": "/preview/desktop.jpg"
+    "previewimage": {
+      "mobile": "/preview/mobile.png",
+      "desktop": "/preview/desktop.png"
     },
-    "folder": "/time-calculator"
+    "folder": "time-calculator"
   },
   {
     "id": "2",
@@ -49,11 +49,11 @@
         "percentage": "70%"
       }
     ],
-    "preview-image": {
-      "mobile": "/preview/mobile.jpg",
-      "desktop": "/preview/desktop.jpg"
+    "previewimage": {
+      "mobile": "/preview/mobile.png",
+      "desktop": "/preview/desktop.png"
     },
-    "folder": "/messenger"
+    "folder": "messenger"
   },
   {
     "id": "3",
@@ -77,10 +77,38 @@
         "percentage": "70%"
       }
     ],
-    "preview-image": {
-      "mobile": "/preview/mobile.jpg",
-      "desktop": "/preview/desktop.jpg"
+    "previewimage": {
+      "mobile": "/preview/mobile.png",
+      "desktop": "/preview/desktop.png"
     },
-    "folder": "/to-do-list"
+    "folder": "to-do-list"
+  },
+  {
+    "id": "4",
+    "title": "Center Logistic",
+    "description": "Сайт для транспортной компании",
+    "time": {
+      "human": "17 сен 2022",
+      "machine": "2022-09-17 17:46"
+    },
+    "languages": [
+      {
+        "name": "html",
+        "percentage": "10%"
+      },
+      {
+        "name": "css",
+        "percentage": "20%"
+      },
+      {
+        "name": "javascript",
+        "percentage": "70%"
+      }
+    ],
+    "previewimage": {
+      "mobile": "/preview/mobile.png",
+      "desktop": "/preview/desktop.png"
+    },
+    "folder": "center-logistic"
   }
 ]

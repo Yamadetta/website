@@ -1,5 +1,5 @@
 <template>
-  <main></main>
+  <main>Не найдено</main>
 </template>
 
 <script>

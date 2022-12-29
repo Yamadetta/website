@@ -8,8 +8,38 @@ import MyHeader from "@/components/MyHeader.vue";
 
 export default {
   components: { MyHeader },
+  computed: {
+    currentLocation() {
+      return this.$route.fullPath;
+    },
+  },
+  watch: {
+    currentLocation() {
+      document.body.className = this.currentLocation
+        .split("/")
+        .join(" ")
+        .trim();
+    },
+  },
 };
 </script>
+
+<!-- 
+header
+footer
+main Примечание: В документе не должно быть более одного элемента <main>. Элемент <main> не должен быть потомком элемента <article>, <aside>, <footer>, <header>, или <nav> элементов.
+section
+
+
+<address>	Определяет контактные данные автора/владельца документа
+<article>	Определяет статью
+<aside>	Определяет содержание в стороне от содержимого страницы (для фильтра).
+
+<dialog>	Определяет диалоговое окно или окно
+
+ -->
+
+
 
 <style lang="scss">
 @import "@/scss/clear.scss";
@@ -34,6 +64,30 @@ body {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+.underline {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    background-color: var(--white-text-color);
+
+    width: 0;
+    height: 2px;
+
+    transition: width 0.2s ease-out;
+  }
+
+  &:hover {
+    &::after {
+      width: 100%;
+    }
   }
 }
 </style>
