@@ -1,25 +1,72 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Main from "@/pages/Main";
+import Articles from "@/pages/Articles";
+import Projects from "@/pages/Projects";
+import Page404 from "@/pages/Page404";
 
-const routes = [
+import { createRouter, createWebHistory } from "vue-router";
+
+const routeOptions = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: "Main",
+    component: Main,
+    meta: {
+      title: 'Главная страница'
+    }
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/projects',
+    name: "Projects",
+    component: Projects,
+    meta: {
+      title: 'Портфолио'
+    }
+  },
+  {
+    path: '/articles',
+    name: "Articles",
+    component: Articles,
+    meta: {
+      title: 'Статьи'
+    }
+  },
+
+
+  {
+    path: '/:pathMatch(.*)',
+    name: "Page404",
+    component: Page404,
+    meta: {
+      title: `404 - Не найдено`
+    }
+  },
+];
+
+
+
+const routes = routeOptions.map(route => {
+  if (route.component === undefined) {
+    return {
+      ...route,
+      component: () => import(/* webpackChunkName: "[request]" */ `@/pages/${route.name}.vue`)
+    };
+  } else {
+    return { ...route };
   }
-]
+});
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  history: createWebHistory(),
+  routes,
+});
 
-export default router
+router.beforeEach((to, from, next) => {
+  if (to.meta.title.includes('#')) {
+    document.title = to.meta.title.replace('#', to.params.id);
+  } else {
+    document.title = `${to.meta.title}`;
+  }
+  next();
+});
+
+export default router;

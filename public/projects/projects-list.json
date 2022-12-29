@@ -1,0 +1,86 @@
+[
+  {
+    "id": "1",
+    "title": "Калькулятор времени",
+    "description": "Данный калькулятор рассчитывает время, которое пройдет между двумя значениями времени. При этом, время считается по часовой стрелке.",
+    "time": {
+      "human": "06 авг 2021",
+      "machine": "2021-08-06 12:16"
+    },
+    "languages": [
+      {
+        "name": "html",
+        "percentage": "10%"
+      },
+      {
+        "name": "css",
+        "percentage": "20%"
+      },
+      {
+        "name": "javascript",
+        "percentage": "70%"
+      }
+    ],
+    "preview-image": {
+      "mobile": "/preview/mobile.jpg",
+      "desktop": "/preview/desktop.jpg"
+    },
+    "folder": "/time-calculator"
+  },
+  {
+    "id": "2",
+    "title": "Окно мессенджера",
+    "description": "Данное окно мессенджера было сделано по требованиям тестового задания в вакансии для приема на работу. Это мой первый проект, в котором я полностью реализовал методологию БЭМ и применил препроцессор Scss. Окно не адаптировано под мобильные устройства.",
+    "time": {
+      "human": "14 авг 2021",
+      "machine": "2021-08-14 18:26"
+    },
+    "languages": [
+      {
+        "name": "html",
+        "percentage": "10%"
+      },
+      {
+        "name": "css",
+        "percentage": "20%"
+      },
+      {
+        "name": "javascript",
+        "percentage": "70%"
+      }
+    ],
+    "preview-image": {
+      "mobile": "/preview/mobile.jpg",
+      "desktop": "/preview/desktop.jpg"
+    },
+    "folder": "/messenger"
+  },
+  {
+    "id": "3",
+    "title": "Список дел",
+    "description": "Классическое приложение при обучении JS - Список дел. Данные из списка дел хранятся в localStorage. Есть адаптивность под мобильные устройства и прелоадер. ",
+    "time": {
+      "human": "02 апр 2022",
+      "machine": "2022-04-02 20:26"
+    },
+    "languages": [
+      {
+        "name": "html",
+        "percentage": "10%"
+      },
+      {
+        "name": "css",
+        "percentage": "20%"
+      },
+      {
+        "name": "javascript",
+        "percentage": "70%"
+      }
+    ],
+    "preview-image": {
+      "mobile": "/preview/mobile.jpg",
+      "desktop": "/preview/desktop.jpg"
+    },
+    "folder": "/to-do-list"
+  }
+]
