@@ -4,14 +4,16 @@
       <projects-filter @sectionChanged="filterArray" :sortList="sortList" />
     </aside>
     <main>
-      <basic-card>
+      <basic-card ref="projectsCard" class="projects-card">
         <h1>Проекты</h1>
         <section v-if="!isLoading">
-          <project-item
-            v-for="project in projectsSorted"
-            :key="project.id"
-            :project="project"
-          ></project-item>
+          <transition-group name="projects-list">
+            <project-item
+              v-for="project in projectsSorted"
+              :key="project.id"
+              :project="project"
+            ></project-item>
+          </transition-group>
         </section>
 
         <my-loader v-if="isLoading" />
@@ -53,7 +55,6 @@ export default {
       }
 
       return array.filter((project) => {
-        // Для ка;дого проекта начинаю перебирать карту
         let projectFlag = true;
         for (const mapKey in filterMaps) {
           const mapValue = filterMaps[mapKey];
@@ -120,9 +121,6 @@ export default {
 
       this.sortList.push(filterItem);
 
-      // console.log("projects", this.projects);
-      // console.log("sortList", this.sortList);
-
       this.projects = this.filterArray(this.projects, this.sortList);
     })();
   },
@@ -139,6 +137,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.projects-list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.projects-list-enter-active,
+.projects-list-leave-active {
+  transition: all 0.8s ease;
+  max-height: 230px;
+}
+.projects-list-enter-from,
+.projects-list-leave-to {
+  opacity: 0;
+  max-height: 0px;
+  padding: 0 1% !important;
+  margin: 0 !important;
+  transform: translateY(-120px);
+}
+
 .projects {
   display: flex;
   gap: 1rem;
@@ -150,6 +166,10 @@ export default {
   width: 100%;
 }
 
+main {
+  flex-grow: 1;
+}
+
 .filter {
   max-width: 20%;
   width: 100%;
@@ -157,6 +177,10 @@ export default {
   .card {
     width: 100%;
   }
+}
+
+.projects-card {
+  width: 100%;
 }
 
 h1 {
