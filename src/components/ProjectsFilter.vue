@@ -1,11 +1,27 @@
 <template>
   <basic-card>
-    <h2>Фильтр</h2>
+    <h3>Фильтр</h3>
+
+    <filter-item
+      @sectionChanged="$emit('sectionChanged', value)"
+      v-for="sortItem in sortList"
+      :key="sortItem.id"
+      :sortItem="sortItem"
+    ></filter-item>
   </basic-card>
 </template>
 
 <script>
-export default {};
+import FilterItem from "@/components/FilterItem.vue";
+export default {
+  components: { FilterItem },
+  props: {
+    sortList: {
+      type: Array,
+      required: true,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

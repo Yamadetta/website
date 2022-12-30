@@ -7,7 +7,7 @@
       "human": "06 авг 2021",
       "machine": "2021-08-06 12:16"
     },
-    "languages": [
+    "technologies": [
       {
         "name": "html",
         "percentage": "10%"
@@ -35,7 +35,7 @@
       "human": "14 авг 2021",
       "machine": "2021-08-14 18:26"
     },
-    "languages": [
+    "technologies": [
       {
         "name": "html",
         "percentage": "10%"
@@ -43,10 +43,6 @@
       {
         "name": "css",
         "percentage": "20%"
-      },
-      {
-        "name": "javascript",
-        "percentage": "70%"
       }
     ],
     "previewimage": {
@@ -63,7 +59,7 @@
       "human": "02 апр 2022",
       "machine": "2022-04-02 20:26"
     },
-    "languages": [
+    "technologies": [
       {
         "name": "html",
         "percentage": "10%"
@@ -91,13 +87,14 @@
       "human": "17 сен 2022",
       "machine": "2022-09-17 17:46"
     },
-    "languages": [
+    "technologies": [
       {
         "name": "html",
-        "percentage": "10%"
+        "percentage": "10%",
+        "hidden": true
       },
       {
-        "name": "css",
+        "name": "scss",
         "percentage": "20%"
       },
       {
