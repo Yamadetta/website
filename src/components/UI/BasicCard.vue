@@ -19,4 +19,8 @@ export default {
   padding: 1rem;
   width: fit-content;
 }
+
+.light {
+  background-color: #3d2e65;
+}
 </style>

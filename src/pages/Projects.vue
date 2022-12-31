@@ -9,6 +9,7 @@
           <h1 class="title">Проекты</h1>
           <my-select v-model="currentSortType" :options="sortTypes" />
         </div>
+
         <section class="projects-card__body" v-if="!isLoading">
           <transition-group name="projects-list">
             <project-item
@@ -128,8 +129,6 @@ export default {
       };
 
       this.sortList.push(filterItem);
-
-      this.projects = this.filterArray(this.projects, this.sortList);
     })();
   },
 
@@ -174,7 +173,6 @@ export default {
 .projects-list-move {
   transition: transform 0.8s ease;
 }
-
 
 // .project {
 //   transition: all 1s ease;

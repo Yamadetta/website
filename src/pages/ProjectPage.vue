@@ -1,14 +1,17 @@
 <template>
   <main>
     <iframe seamless :src="iframeLink" frameborder="0"></iframe>
+    <button v-html="settingsIcon" class="project-control"></button>
   </main>
 </template>
 
 <script>
+import { settings } from "@/assets/icons/svgIcons.js";
 export default {
   data() {
     return {
       iframeLink: "",
+      settingsIcon: settings,
     };
   },
   mounted() {
@@ -19,12 +22,12 @@ export default {
     link = link.replace("//", "/");
     this.iframeLink = link;
 
-    console.log(link);
-    console.log(last);
-
+    // console.log(link);
+    // console.log(last);
+    // console.log(this.$route.name == "ProjectPage");
     // document.querySelector("header").style.display = "none";
 
-    console.log(this.$route);
+    // console.log(this.$store.getters.currentPage);
   },
 };
 </script>
@@ -43,11 +46,12 @@ iframe {
 
 
 <style lang="scss">
-body.projects {
-  // overflow: hidden;
+.project-control {
+  position: fixed;
+  right: 0;
+  bottom: 0;
 
-  header {
-    // margin-bottom: 0;
-  }
+  background: none;
+  border: none;
 }
 </style>

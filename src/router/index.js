@@ -6,6 +6,7 @@ import ProjectPage from "@/pages/ProjectPage";
 
 
 import { createRouter, createWebHistory } from "vue-router";
+import store from "@/store";
 
 const routeOptions = [
   {

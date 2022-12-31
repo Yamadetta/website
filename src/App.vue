@@ -10,21 +10,23 @@ export default {
   components: { MyHeader },
   computed: {
     currentLocation() {
-      return this.$route.fullPath;
+      return this.$route.name;
     },
   },
   watch: {
     currentLocation() {
-      document.body.className = this.currentLocation
-        .split("/")
-        .join(" ")
-        .trim();
+      document.body.className = this.currentLocation;
     },
   },
 };
 </script>
 
 <!-- 
+
+  Сделать нормальную кнопку настроек проекта.
+  Сделать нормальный вызов svg icon, а не то, что сейчас. https://www.npmjs.com/package/vue-inline-svg#vue-v3
+
+
 header
 footer
 main Примечание: В документе не должно быть более одного элемента <main>. Элемент <main> не должен быть потомком элемента <article>, <aside>, <footer>, <header>, или <nav> элементов.

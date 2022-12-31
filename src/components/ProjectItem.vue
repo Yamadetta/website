@@ -1,5 +1,5 @@
 <template>
-  <basic-card class="project">
+  <basic-card class="project light">
     <router-link
       :to="'/projects/' + project.folder + '/'"
       class="project__preview"
@@ -66,8 +66,6 @@ export default {
       required: true,
     },
   },
-
-  mounted() {},
 };
 </script>
 
@@ -75,13 +73,12 @@ export default {
 .project {
   display: flex;
   gap: 2%;
-  align-items: center;
+  align-items: flex-start;
 
   width: 100%;
 
   --border-color: #7c11ae;
-  border: 1px solid var(--border-color);
-  box-shadow: 0px 6px 10px 0px #7c11aebd;
+  box-shadow: 0px 6px 10px 0px rgb(0 0 0 / 36%);
 
   --preview-width: 25%;
 
@@ -89,7 +86,7 @@ export default {
 
   &.card {
     margin-bottom: 1rem;
-    padding: 0.5% 1%;
+    padding: calc(1% + 1px) calc(1% + 1px);
   }
 
   .title {
@@ -98,7 +95,7 @@ export default {
   }
 
   h2 {
-    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
     width: fit-content;
   }
 
@@ -114,7 +111,9 @@ export default {
   }
 
   &:hover {
-    box-shadow: 0px 6px 20px 10px #7c11aebd;
+    border: 1px solid var(--border-color);
+    padding: 1% 1%;
+    box-shadow: 0px 6px 10px 0px rgb(0 0 0 / 60%);
   }
 
   @media (max-width: 600px) {
@@ -140,7 +139,7 @@ export default {
 
   &__border {
     padding: 3%;
-    background-color: black;
+    background-color: #e8e8e8;
 
     position: relative;
 
@@ -152,7 +151,7 @@ export default {
       left: calc(0% - var(--keyboard-height));
       width: calc(100% + (var(--keyboard-height) * 2));
       height: var(--keyboard-height);
-      background: black;
+      background: linear-gradient(180deg, #e8e8e8 15%, rgb(102 102 102) 100%);
       border-radius: 6px;
     }
 
@@ -166,7 +165,7 @@ export default {
       width: 30%;
       height: calc(var(--keyboard-height) - 2%);
 
-      background: #f1f1f1;
+      background: #7c00b5;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
       z-index: 1;
@@ -211,7 +210,11 @@ export default {
     box-shadow: 1px 3px 6px black;
 
     padding: 12% 3%;
-    background-color: black;
+    background: linear-gradient(
+      0deg,
+      rgba(228, 228, 228, 1) 78%,
+      rgb(214 214 214) 100%
+    );
     border-top-left-radius: 9% 6%;
     border-top-right-radius: 9% 6%;
     border-bottom-left-radius: 9% 6%;
@@ -225,19 +228,19 @@ export default {
       position: absolute;
       top: 3%;
       left: 41%;
-      background: #333;
+      background: #54007b;
       border-radius: 10px;
     }
 
     &::after {
       content: "";
       display: block;
-      width: 8%;
-      padding-bottom: 8%;
+      width: 12%;
+      padding-bottom: 12%;
       position: absolute;
-      left: 45%;
-      bottom: 1.5%;
-      background: #333;
+      left: 44%;
+      bottom: 2.5%;
+      background: #54007b;
       border-radius: 50%;
     }
   }
