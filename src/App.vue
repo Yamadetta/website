@@ -50,9 +50,21 @@ section
 
 body {
   background: linear-gradient(166deg, #5055a8 10%, #96355b 50%, #8544a0 76%);
-  background-size: 400% 400%;
-  animation: gradient 10s ease infinite;
-  height: 100vh;
+  // background-size: 400% 400%;
+  // animation: gradient 10s ease infinite;
+  background-repeat: no-repeat;
+  min-height: 100%;
+}
+
+.background-mask {
+  min-height: 100vh;
+  opacity: 0.9;
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #5055a8 12px
+    ),
+    repeating-linear-gradient(rgba(0, 255, 235, 0.78), rgba(255, 255, 255, 0));
 }
 
 @keyframes gradient {

@@ -5,11 +5,14 @@
     </aside>
     <main>
       <basic-card ref="projectsCard" class="projects-card">
-        <h1>Проекты</h1>
-        <section v-if="!isLoading">
+        <div class="projects-card__header">
+          <h1 class="title">Проекты</h1>
+          <my-select v-model="currentSortType" :options="sortTypes" />
+        </div>
+        <section class="projects-card__body" v-if="!isLoading">
           <transition-group name="projects-list">
             <project-item
-              v-for="project in projectsSorted"
+              v-for="project in projectsFiltered"
               :key="project.id"
               :project="project"
             ></project-item>
@@ -31,9 +34,14 @@ export default {
   data() {
     return {
       projects: [],
-      projectsSorted: [],
       isLoading: true,
       sortList: [],
+      sortTypes: [
+        { value: "new", name: "От новых к старым" },
+        { value: "old", name: "От старых к новым" },
+      ],
+
+      currentSortType: "new",
     };
   },
 
@@ -125,12 +133,20 @@ export default {
     })();
   },
 
-  watch: {
-    sortList: {
-      handler(newValue, oldValue) {
-        this.projectsSorted = this.filterArray(this.projects, this.sortList);
-      },
-      deep: true,
+  computed: {
+    projectsSorted() {
+      if (this.currentSortType == "new") {
+        return [...this.projects].sort((project1, project2) =>
+          project1.id > project2.id ? -1 : 1
+        );
+      } else {
+        return [...this.projects].sort((project1, project2) =>
+          project1.id > project2.id ? 1 : -1
+        );
+      }
+    },
+    projectsFiltered() {
+      return this.filterArray([...this.projectsSorted], this.sortList);
     },
   },
 };
@@ -151,9 +167,30 @@ export default {
   opacity: 0;
   max-height: 0px;
   padding: 0 1% !important;
-  margin: 0 !important;
+  margin: -1px 0 !important;
   transform: translateY(-120px);
 }
+
+.projects-list-move {
+  transition: transform 0.8s ease;
+}
+
+
+// .project {
+//   transition: all 1s ease;
+//   // display: inline-flex;
+//   margin-right: 10px;
+// }
+
+// .projects-list-enter-from,
+// .projects-list-leave-to {
+//   opacity: 0;
+//   transform: translateY(-120px);
+// }
+
+// .projects-list-leave-active {
+//   position: absolute;
+// }
 
 .projects {
   display: flex;
@@ -183,7 +220,26 @@ main {
   width: 100%;
 }
 
-h1 {
-  font-size: 2.5rem;
+.projects-card {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    margin-bottom: 1rem;
+
+    h1.title {
+      font-size: 2.5rem;
+    }
+
+    .select-wrapper {
+      margin-left: auto;
+    }
+  }
+
+  &__body {
+    position: relative;
+  }
 }
 </style>

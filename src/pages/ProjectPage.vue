@@ -1,6 +1,6 @@
 <template>
   <main>
-    <iframe :src="iframeLink" frameborder="0"></iframe>
+    <iframe seamless :src="iframeLink" frameborder="0"></iframe>
   </main>
 </template>
 
@@ -23,15 +23,21 @@ export default {
     console.log(last);
 
     // document.querySelector("header").style.display = "none";
+
+    console.log(this.$route);
   },
 };
 </script>
 
 <style lang="scss" scoped>
+main {
+  height: 100vh;
+}
 iframe {
+  display: block;
   background-color: #fff;
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
 </style>
 
