@@ -1,0 +1,128 @@
+body.nav-show .header {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 85px;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s linear;
+}
+.header .container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: space-between;
+}
+.header--scroll {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+@media (max-width: 767px) {
+  .header {
+    height: 50px;
+  }
+}
+
+@media (min-width: 768px) {
+  body.no-scroll .header .container {
+    padding-right: 23px;
+    padding-left: 7px;
+  }
+}
+
+.nav {
+  display: flex;
+  height: 100%;
+  font-size: 15px;
+}
+.nav__link {
+  display: flex;
+  height: 100%;
+  padding: 0 15px;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.2s linear;
+}
+.nav__link:hover:not(.active) {
+  text-decoration: underline;
+}
+.nav__link.active {
+  background-color: #004AF2;
+}
+@media (max-width: 767px) {
+  .nav {
+    transform: translateX(100%);
+    transition: transform 0.2s ease-out;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding-top: 9px;
+    width: 100%;
+    min-height: calc(100vh - 50px);
+    height: auto;
+    background-color: rgba(0, 0, 0, 0.85);
+    flex-direction: column;
+  }
+  .nav.show {
+    transform: translateX(0);
+  }
+  .nav__link {
+    display: block;
+    text-align: right;
+    padding: 10px 15px;
+    font-family: "Lato", sans-serif;
+    font-size: 15px;
+  }
+}
+
+.burger {
+  display: none;
+  background: none;
+  padding: 0;
+  border: none;
+  width: 30px;
+  height: 17px;
+}
+.burger__line {
+  width: 30px;
+  height: 2px;
+  background-color: white;
+  margin: 3px 0;
+  transition: width 0.2s ease-out, transform 0.2s ease-out;
+}
+.burger__line:nth-child(1) {
+  width: 20px;
+  margin-left: auto;
+}
+.burger.active {
+  position: relative;
+}
+.burger.active .burger__line:nth-child(1), .burger.active .burger__line:nth-child(3) {
+  width: 0;
+}
+.burger.active .burger__line:nth-child(2), .burger.active .burger__line:nth-child(4) {
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+.burger.active .burger__line:nth-child(2) {
+  transform: rotate(45deg);
+}
+.burger.active .burger__line:nth-child(4) {
+  transform: rotate(-45deg);
+}
+.burger:focus {
+  outline: none;
+}
+@media (max-width: 767px) {
+  .burger {
+    display: block;
+  }
+}

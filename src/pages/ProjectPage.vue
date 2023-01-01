@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <!-- <main>
     <iframe seamless :src="iframeLink" frameborder="0"></iframe>
 
     <div class="project-controls-wrapper">
@@ -9,27 +9,54 @@
       <button class="project-controls description-button">
         <inline-svg :src="require('@/assets/icons/description-icon.svg')" />
       </button>
-      <button class="project-controls preview-code-button">
+      <button
+        class="project-controls preview-code-button"
+        @click="createCodePreview"
+      >
         <inline-svg :src="require('@/assets/icons/code-window.svg')" />
       </button>
     </div>
-  </main>
+  </main> -->
+
+  <code-preview :folderMap="projectMap" v-if="codePreview" />
 </template>
 
 <script>
+import CodePreview from "@/components/CodePreview.vue";
+
 export default {
+  components: { CodePreview },
   data() {
     return {
       iframeLink: "",
+      codePreview: false,
+      projectMap: {},
     };
   },
   mounted() {
     let link = this.$route.fullPath;
     let last = link.split("/");
-    last = `${last[last.length - 2]}.html`;
+    last = `${this.$route.params.name}.html`;
     link += `/${last}`;
     link = link.replace("//", "/");
+
     this.iframeLink = link;
+    this.createCodePreview();
+  },
+  methods: {
+    async createCodePreview() {
+      if (Object.keys(this.projectMap).length === 0) {
+        await fetch(`/projects/${this.$route.params.name}/source/map.json`)
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            this.projectMap = data;
+          });
+      }
+
+      this.codePreview = this.codePreview ? false : true;
+    },
   },
 };
 </script>
