@@ -1,17 +1,26 @@
 <template>
   <main>
     <iframe seamless :src="iframeLink" frameborder="0"></iframe>
-    <button v-html="settingsIcon" class="project-control"></button>
+
+    <div class="project-controls-wrapper">
+      <button class="project-controls main-button">
+        <inline-svg :src="require('@/assets/icons/settings-icon.svg')" />
+      </button>
+      <button class="project-controls description-button">
+        <inline-svg :src="require('@/assets/icons/description-icon.svg')" />
+      </button>
+      <button class="project-controls preview-code-button">
+        <inline-svg :src="require('@/assets/icons/code-window.svg')" />
+      </button>
+    </div>
   </main>
 </template>
 
 <script>
-import { settings } from "@/assets/icons/svgIcons.js";
 export default {
   data() {
     return {
       iframeLink: "",
-      settingsIcon: settings,
     };
   },
   mounted() {
@@ -21,13 +30,6 @@ export default {
     link += `/${last}`;
     link = link.replace("//", "/");
     this.iframeLink = link;
-
-    // console.log(link);
-    // console.log(last);
-    // console.log(this.$route.name == "ProjectPage");
-    // document.querySelector("header").style.display = "none";
-
-    // console.log(this.$store.getters.currentPage);
   },
 };
 </script>
@@ -42,16 +44,110 @@ iframe {
   width: 100%;
   height: 100%;
 }
-</style>
 
-
-<style lang="scss">
-.project-control {
+.project-controls-wrapper {
   position: fixed;
-  right: 0;
-  bottom: 0;
+  right: 50px;
+  bottom: 50px;
 
-  background: none;
-  border: none;
+  width: 60px;
+  height: 60px;
+
+  animation: hide-animation 0.2s linear 0s 1 normal forwards;
+
+  &:hover {
+    width: 150px;
+    height: 150px;
+    .description-button {
+      animation: description-button-in 0.2s ease-out 0s 1 normal forwards;
+    }
+    .preview-code-button {
+      animation: preview-code-button-in 0.2s ease-out 0s 1 normal forwards;
+    }
+  }
+}
+
+.project-controls {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  width: 60px;
+  height: 60px;
+  padding: 15px;
+  border-radius: 50%;
+
+  background-color: var(--basic-card-bg-color);
+  box-shadow: 1px 3px 6px var(--basic-card-bg-color);
+}
+
+.main-button {
+}
+
+.description-button {
+  animation: description-button-out 0.2s ease-out 0s 1 normal forwards;
+}
+
+.preview-code-button {
+  animation: preview-code-button-out 0.2s ease-out 0s 1 normal forwards;
+}
+
+@keyframes hide-animation {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes description-button-in {
+  from {
+    transform: translateY(0%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-150%);
+    opacity: 1;
+  }
+}
+
+@keyframes description-button-out {
+  from {
+    transform: translateY(-150%);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(0%);
+    opacity: 0;
+  }
+}
+
+@keyframes preview-code-button-in {
+  from {
+    transform: translateX(0%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-150%);
+    opacity: 1;
+  }
+}
+
+@keyframes preview-code-button-out {
+  from {
+    transform: translateX(-150%);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(0%);
+    opacity: 0;
+  }
 }
 </style>

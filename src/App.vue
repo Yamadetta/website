@@ -24,7 +24,7 @@ export default {
 <!-- 
 
   Сделать нормальную кнопку настроек проекта.
-  Сделать нормальный вызов svg icon, а не то, что сейчас. https://www.npmjs.com/package/vue-inline-svg#vue-v3
+  Сделать нормальный вызов svg icon, а не то, что сейчас. https://www.npmjs.com/package/vue-inline-svg#vue-v3npm
 
 
 header
@@ -48,6 +48,8 @@ section
 
 :root {
   --white-text-color: #dddddd;
+  --basic-card-bg-color: #2f244b;
+  --basic-card-bg-color-light: #3d2e65;
 }
 
 body {
@@ -102,6 +104,16 @@ body {
     &::after {
       width: 100%;
     }
+  }
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+  fill: var(--white-text-color);
+  g,
+  path {
+    fill: var(--white-text-color);
   }
 }
 </style>

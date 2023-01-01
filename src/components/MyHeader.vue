@@ -9,20 +9,19 @@
       <router-link class="underline" to="/articles">Статьи</router-link>
     </nav>
     <basic-card class="expand-button">
-      <button
-        @click="this.isShowHeader = this.isShowHeader ? false : true"
-        v-html="downArrow"
-      ></button>
+      <button @click="this.isShowHeader = this.isShowHeader ? false : true">
+        <inline-svg
+          :src="require('@/assets/icons/down-arrow.svg')"
+        ></inline-svg>
+      </button>
     </basic-card>
   </header>
 </template>
 
 <script>
-import { downArrow } from "@/assets/icons/svgIcons.js";
 export default {
   data() {
     return {
-      downArrow: downArrow,
       isShowHeader: true,
     };
   },
@@ -72,7 +71,7 @@ nav {
     display: block;
     position: absolute;
     bottom: -25px;
-    right: 5%;
+    right: 20px;
 
     padding: 0;
 
@@ -89,9 +88,6 @@ nav {
 
       cursor: pointer;
 
-      :global(svg) {
-        fill: var(--white-text-color);
-      }
     }
   }
 

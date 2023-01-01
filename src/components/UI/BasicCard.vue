@@ -13,14 +13,14 @@ export default {
 <style lang="scss">
 .card {
   color: var(--white-text-color);
-  background-color: #2f244b;
-  box-shadow: 1px 3px 6px #2f244b;
+  background-color: var(--basic-card-bg-color);
+  box-shadow: 1px 3px 6px var(--basic-card-bg-color);
 
   padding: 1rem;
   width: fit-content;
 }
 
 .light {
-  background-color: #3d2e65;
+  background-color: var(--basic-card-bg-color-light);
 }
 </style>
