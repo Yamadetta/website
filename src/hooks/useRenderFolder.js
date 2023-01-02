@@ -31,7 +31,7 @@ export const renderFolder = (folderMap) => {
           <img class="folder__icon folder__icon--closed" src="${require("@/assets/code-preview-icons/default_root_folder.svg")}" alt="">
           <span>${route.params.name}</span>
         </div>
-        <div class="folder__files hidden">`;
+        <div class="folder__files  hidden">`;
   }
 
   for (const key in folderMap.entries) {
@@ -49,7 +49,7 @@ export const renderFolder = (folderMap) => {
       let file = /* html */
         `<div class="file">
             <img class="file__icon" src="${fileIcon}" alt="">
-            <span class="file__name" data-path="${item.path}">${item.name}</span>
+            <span class="file__name" data-path="${item.path}" data-extension="${item.ext}">${item.name}</span>
           </div>`;
 
       result += file;

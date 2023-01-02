@@ -95,6 +95,7 @@ nav {
     position: fixed;
     transition: transform 0.2s ease-out;
     transform: translateY(-100%);
+    z-index: 1;
 
     .expand-button button {
       transform: rotate(0deg);

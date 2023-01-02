@@ -1,0 +1,42 @@
+{
+ "name": "Список дел",
+ "short_name": "Дела",
+ "description": "Приложение по формированию списка дел",
+ "lang": "ru-Ru",
+ "start_url": "/",
+ "scope": "/",
+ "display": "standalone",
+ "theme_color": "#89726E",
+ "background_color": "#413331",
+ "icons": [
+  {
+   "src": ".\/favicon\/android-icon-72x72.png",
+   "sizes": "72x72",
+   "type": "image\/png",
+   "density": "1.5"
+  },
+  {
+   "src": ".\/favicon\/android-icon-96x96.png",
+   "sizes": "96x96",
+   "type": "image\/png",
+   "density": "2.0"
+  },
+  {
+   "src": ".\/favicon\/android-icon-144x144.png",
+   "sizes": "144x144",
+   "type": "image\/png",
+   "density": "3.0"
+  },
+  {
+   "src": ".\/favicon\/android-icon-192x192.png",
+   "sizes": "192x192",
+   "type": "image\/png",
+   "density": "4.0"
+  },
+  {
+   "src": ".\/favicon\/android-icon-512x512.png",
+   "sizes": "512x512",
+   "type": "image\/png"
+  }
+ ]
+}

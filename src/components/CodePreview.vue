@@ -1,10 +1,21 @@
 <template>
-  <div class="code-preview-wrapper">
-    <div @click="foldFolder" v-html="folderTree" class="folder-tree"></div>
-    <code-preview-window :code="code" />
+  <div ref="codePreview" class="code-preview">
+    <div class="code-preview__header">
+      <div @mousedown="resize" class="resizer"></div>
+      <div class="title">Исходный код проекта</div>
+      <div class="close-button" @click="$emit('close')"></div>
+    </div>
+
+    <div class="code-preview__body">
+      <div @click="foldFolder" v-html="folderTree" class="folder-tree"></div>
+      <code-preview-window :file="file" />
+    </div>
   </div>
 </template>
 
+
+
+<!-- https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+css-extras+git+ignore+json+scss&plugins=line-numbers+autolinker+highlight-keywords+inline-color+match-braces -->
 <script>
 import { renderFolder } from "@/hooks/useRenderFolder.js";
 import CodePreviewWindow from "@/components/CodePreviewWindow.vue";
@@ -20,7 +31,11 @@ export default {
   data() {
     return {
       folderTree: "",
-      code: "",
+      file: {
+        content: "",
+        extension: "",
+        path: "",
+      },
     };
   },
   methods: {
@@ -31,7 +46,9 @@ export default {
             return response.text();
           })
           .then((data) => {
-            this.code = data;
+            this.file.content = data;
+            this.file.extension = event.target.getAttribute("data-extension");
+            this.file.path = event.target.getAttribute("data-path");
           });
 
         return;
@@ -42,19 +59,21 @@ export default {
       folder.querySelector(".folder__files").classList.toggle("hidden");
       folder.querySelector(".folder__title").classList.toggle("fold");
     },
+
+    resize() {
+      this.$emit("resize", this.$refs.codePreview);
+    },
   },
 
   mounted() {
-    fetch(`/projects/${this.$route.params.name}/source/map.json`)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        console.log(data);
-      });
+    // document
+    //   .querySelector(
+    //     '[data-path="/projects/center-logistic/source/gulp/config/plugins.js"]'
+    //   )
+    //   .click();
   },
 
-  setup(props, route) {
+  setup(props) {
     const folderTree = renderFolder(props.folderMap);
     return { folderTree };
   },
@@ -62,22 +81,96 @@ export default {
 </script>
 
 <style lang="scss">
-.code-preview-wrapper {
+.code-preview {
   display: flex;
-  padding-top: 200px;
-  background-color: #2c2c2c;
+  flex-direction: column;
+  background-color: var(--basic-card-bg-color);
+  height: 30vh;
+
+  &__header {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0.5rem 1rem;
+
+    background-color: var(--basic-card-bg-color-light);
+
+    .resizer {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 4px;
+
+      cursor: row-resize;
+    }
+
+    .title {
+      color: var(--white-text-color);
+      font-size: 1.2rem;
+      font-weight: bold;
+
+      user-select: none;
+    }
+    .close-button {
+      position: relative;
+
+      width: 22px;
+      height: 22px;
+      opacity: 1;
+
+      cursor: pointer;
+
+      &:hover {
+        opacity: 1;
+      }
+      &:before,
+      &:after {
+        position: absolute;
+        left: 11px;
+        right: 0;
+
+        content: " ";
+        height: 22px;
+        width: 2px;
+        background-color: var(--white-text-color);
+      }
+      &:before {
+        transform: rotate(45deg);
+      }
+      &:after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  &__body {
+    padding: 0 1rem 1rem 1rem;
+    display: flex;
+    max-height: calc(100% - 50px);
+  }
 }
 .folder-tree {
-  min-width: 20%;
-}
-.code-preview {
+  max-width: 15%;
+  min-width: 10%;
+  overflow: auto;
+  padding: 0 1rem 0 0;
 }
 
-.folder-tree {
+.code-content {
+  color: var(--white-text-color);
+  width: 100%;
+  overflow: auto;
+  padding-left: 1rem;
 }
 
 .folder {
   user-select: none;
+  cursor: pointer;
 
   &__icon {
     display: inline;
@@ -95,9 +188,10 @@ export default {
     gap: 0.2rem;
     align-items: flex-end;
 
+    margin-bottom: 0.4rem;
+
     font-size: 1.3rem;
     font-weight: bold;
-    cursor: pointer;
 
     &.fold {
       .folder__icon--closed {
@@ -114,12 +208,27 @@ export default {
 
   &__files {
     margin-left: 1rem;
+    position: relative;
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      left: -0.5rem;
+
+      height: 100%;
+      width: 1px;
+
+      background-color: var(--white-text-color);
+    }
   }
 }
 
 .file {
   display: flex;
   user-select: none;
+  cursor: pointer;
 
   &__icon {
     width: 25px;
@@ -127,6 +236,10 @@ export default {
 
   &__name {
     color: var(--white-text-color);
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 

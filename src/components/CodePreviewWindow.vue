@@ -1,34 +1,36 @@
 <template>
-  <div class="code-preview">
-    <pre v-html="highlightsCode"></pre>
-  </div>
+  <div ref="codeContent" class="code-content"></div>
 </template>
 
 <script>
-import renderCode from "@/hooks/usePrism.js";
+import usePrism from "@/hooks/usePrism.js";
 
 export default {
   props: {
-    code: {
-      type: String,
+    file: {
+      type: Object,
       required: true,
     },
   },
   computed: {
     highlightsCode() {
-      return renderCode(this.code);
+      return usePrism(this.file);
     },
   },
 
-  setup(props) {
-    // return { renderCode };
+  watch: {
+    highlightsCode() {
+      if (this.highlightsCode.type == String) {
+        this.$refs.codeContent.innerHTML = this.highlightsCode.data;
+      } else {
+        this.$refs.codeContent.innerHTML = "";
+        this.$refs.codeContent.append(this.highlightsCode.data);
+      }
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "@/scss/prism.css";
-.code-preview {
-  color: var(--white-text-color);
-}
 </style>

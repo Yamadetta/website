@@ -1,7 +1,7 @@
 <template>
-  <!-- <main>
+  <main ref="main">
     <iframe seamless :src="iframeLink" frameborder="0"></iframe>
-
+    <div v-if="isResize" class="mask"></div>
     <div class="project-controls-wrapper">
       <button class="project-controls main-button">
         <inline-svg :src="require('@/assets/icons/settings-icon.svg')" />
@@ -11,14 +11,19 @@
       </button>
       <button
         class="project-controls preview-code-button"
-        @click="createCodePreview"
+        @click="codePreviewSwitch"
       >
         <inline-svg :src="require('@/assets/icons/code-window.svg')" />
       </button>
     </div>
-  </main> -->
+  </main>
 
-  <code-preview :folderMap="projectMap" v-if="codePreview" />
+  <code-preview
+    @close="codePreviewSwitch"
+    @resize="resize"
+    :folderMap="projectMap"
+    v-if="codePreview"
+  />
 </template>
 
 <script>
@@ -31,6 +36,7 @@ export default {
       iframeLink: "",
       codePreview: false,
       projectMap: {},
+      isResize: false,
     };
   },
   mounted() {
@@ -41,10 +47,9 @@ export default {
     link = link.replace("//", "/");
 
     this.iframeLink = link;
-    this.createCodePreview();
   },
   methods: {
-    async createCodePreview() {
+    async codePreviewSwitch() {
       if (Object.keys(this.projectMap).length === 0) {
         await fetch(`/projects/${this.$route.params.name}/source/map.json`)
           .then((response) => {
@@ -56,6 +61,42 @@ export default {
       }
 
       this.codePreview = this.codePreview ? false : true;
+      this.$refs.main.style.height = "";
+    },
+    resize(codePreviewEl) {
+      let main = {
+        el: this.$refs.main,
+        startHeight: 0,
+      };
+
+      let codePreview = {
+        el: codePreviewEl,
+        startHeight: 0,
+      };
+
+      main.height = main.el.offsetHeight;
+      codePreview.height = codePreview.el.offsetHeight;
+
+      const doDrag = (e) => {
+        this.isResize = true;
+        codePreview.el.style.height = `${innerHeight - e.screenY}px`;
+        main.el.style.height = `${e.screenY}px`;
+
+        // p.style.width = startWidth + e.clientX - startX + "px";
+        // p.style.height = startHeight + e.clientY - startY + "px";
+      };
+
+      const stopDrag = (e) => {
+        document.documentElement.removeEventListener(
+          "mousemove",
+          doDrag,
+          false
+        );
+        this.isResize = false;
+      };
+
+      document.documentElement.addEventListener("mousemove", doDrag, false);
+      document.documentElement.addEventListener("mouseup", stopDrag, false);
     },
   },
 };
@@ -63,7 +104,10 @@ export default {
 
 <style lang="scss" scoped>
 main {
+  position: relative;
+
   height: 100vh;
+  background-color: gray;
 }
 iframe {
   display: block;
@@ -72,8 +116,18 @@ iframe {
   height: 100%;
 }
 
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .project-controls-wrapper {
-  position: fixed;
+  position: absolute;
   right: 50px;
   bottom: 50px;
 
@@ -175,6 +229,21 @@ iframe {
   to {
     transform: translateX(0%);
     opacity: 0;
+  }
+}
+</style>
+
+
+<style lang="scss">
+.ProjectPage {
+  #app {
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+  }
+
+  main {
+    flex-grow: 1;
   }
 }
 </style>

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Мессенджер</title>
+
+    <!-- Обязательный (и достаточный) тег для браузеров -->
+	<link type="image/x-icon" rel="shortcut icon" href="./favicon.ico">
+
+	<!-- Дополнительные иконки для десктопных браузеров -->
+	<link type="image/png" sizes="16x16" rel="icon" href="./favicon-16x16.png">
+	<link type="image/png" sizes="32x32" rel="icon" href="./favicon-32x32.png">
+	<link type="image/png" sizes="96x96" rel="icon" href="./favicon-96x96.png">
+	<link type="image/png" sizes="120x120" rel="icon" href="./favicon-120x120.png">
+
+	<!-- Иконки для Android -->
+	<link type="image/png" sizes="72x72" rel="icon" href="./android-icon-72x72.png">
+	<link type="image/png" sizes="96x96" rel="icon" href="./android-icon-96x96.png">
+	<link type="image/png" sizes="144x144" rel="icon" href="./android-icon-144x144.png">
+	<link type="image/png" sizes="192x192" rel="icon" href="./android-icon-192x192.png">
+	<link type="image/png" sizes="512x512" rel="icon" href="./android-icon-512x512.png">
+	<link rel="manifest" href="./manifest.json">
+
+	<!-- Иконки для iOS (Apple) -->
+	<link sizes="57x57" rel="apple-touch-icon" href="./apple-touch-icon-57x57.png">
+	<link sizes="60x60" rel="apple-touch-icon" href="./apple-touch-icon-60x60.png">
+	<link sizes="72x72" rel="apple-touch-icon" href="./apple-touch-icon-72x72.png">
+	<link sizes="76x76" rel="apple-touch-icon" href="./apple-touch-icon-76x76.png">
+	<link sizes="114x114" rel="apple-touch-icon" href="./apple-touch-icon-114x114.png">
+	<link sizes="120x120" rel="apple-touch-icon" href="./apple-touch-icon-120x120.png">
+	<link sizes="144x144" rel="apple-touch-icon" href="./apple-touch-icon-144x144.png">
+	<link sizes="152x152" rel="apple-touch-icon" href="./apple-touch-icon-152x152.png">
+	<link sizes="180x180" rel="apple-touch-icon" href="./apple-touch-icon-180x180.png">
+
+	<!-- Иконки для MacOS (Apple) -->
+	<link color="#e52037" rel="mask-icon" href="./safari-pinned-tab.svg">
+
+	<!-- Иконки и цвета для плиток Windows -->
+	<meta name="msapplication-TileColor" content="#2b5797">
+	<meta name="msapplication-TileImage" content="./mstile-144x144.png">
+	<meta name="msapplication-square70x70logo" content="./mstile-70x70.png">
+	<meta name="msapplication-square150x150logo" content="./mstile-150x150.png">
+	<meta name="msapplication-wide310x150logo" content="./mstile-310x310.png">
+	<meta name="msapplication-square310x310logo" content="./mstile-310x150.png">
+	<meta name="application-name" content="My Application">
+	<meta name="msapplication-config" content="./browserconfig.xml">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div class="header__personal">
+                <div class="header__icon">
+                    <img src="./img/photo/my-photo.jpg" alt="" srcset="">
+                </div>
+                <div class="header__personal-info">
+                    <span class="header__name">Игорь</span>
+                    <span class="header__status">в сети</span>
+                </div>
+            </div>
+            <div class="header__buttons">
+                <div class="header__search-btn">
+                    <img src="./img/header/search-icon.svg" alt="" srcset="">
+                </div>
+                <div class="header__call-btn">
+                    <img src="./img/header/phone-call-icon.svg" alt="" srcset="">
+                </div>
+            </div>
+        </header>
+        <main class="main">
+            <div class="main__user-list">
+                <div class="contacts contacts__active">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: Извини за спам, тести...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter"></span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                <div class="contacts">
+                    <div class="contacts__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="" srcset="">
+                    </div>
+                    <div class="contacts__middle">
+                        <span class="contacts__name">Андрей</span>
+                        <span class="contacts__last-message">Вы: привет, как у тебя...</span>
+                    </div>
+                    <div class="contacts__end">
+                        <span class="contacts__counter">1117</span>
+                        <span class="contacts__time">16:44</span>
+                    </div>
+                </div>
+                
+                
+            </div>
+            <div class="main__chat">
+                <div class="dialogue">
+                    <div class="dialogue__icon">
+                        <img src="./img/photo/my-photo.jpg" alt="">
+                    </div>
+                    <div class="dialogue__message-group">
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились по ошибке, некоторые - намеренно (например, юмористические варианты).</span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialogue">
+                    <div class="dialogue__icon">
+                        <img src="./img/photo/my-photo.jpg" alt="">
+                    </div>
+                    <div class="dialogue__message-group">
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились по ошибке, некоторые - намеренно (например, юмористические варианты).</span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialogue">
+                    <div class="dialogue__icon">
+                        <img src="./img/photo/my-photo.jpg" alt="">
+                    </div>
+                    <div class="dialogue__message-group">
+                        
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились по ошибке, некоторые - намеренно (например, юмористические варианты).</span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialogue">
+                    <div class="dialogue__icon">
+                        <img src="./img/photo/my-photo.jpg" alt="">
+                    </div>
+                    <div class="dialogue__message-group">
+                                                
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialogue">
+                    <div class="dialogue__icon">
+                        <img src="./img/photo/my-photo.jpg" alt="">
+                    </div>
+                    <div class="dialogue__message-group">
+                                                
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialogue">
+                    <div class="dialogue__icon">
+                        <img src="./img/photo/my-photo.jpg" alt="">
+                    </div>
+                    <div class="dialogue__message-group">
+                                                
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialogue">
+                    <div class="dialogue__icon">
+                        <img src="./img/photo/my-photo.jpg" alt="">
+                    </div>
+                    <div class="dialogue__message-group">
+                                                
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialogue">
+                    <div class="dialogue__icon">
+                        <img src="./img/photo/my-photo.jpg" alt="">
+                    </div>
+                    <div class="dialogue__message-group">
+                                                
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialogue">
+                    <div class="dialogue__icon">
+                        <img src="./img/photo/my-photo.jpg" alt="">
+                    </div>
+                    <div class="dialogue__message-group">
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. Здесь ваш текст.. Здесь ваш текст.." Многие программы электронной вёрстки и редакторы HTML используют Lorem Ipsum в качестве текста по умолчанию, так что поиск по ключевым словам "lorem ipsum" сразу показывает, как много веб-страниц всё ещё дожидаются своего настоящего рождения. За прошедшие годы текст Lorem Ipsum получил много версий. Некоторые версии появились по ошибке, некоторые - намеренно (например, юмористические варианты).</span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов в абзацах, которое не получается при простой дубликации "Здесь ваш текст.. </span>
+                            <span class="dialogue__time-message">14:16</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialogue">
+                    <div class="dialogue__icon">
+                        <img src="./img/photo/my-photo.jpg" alt="">
+                    </div>
+                    <div class="dialogue__message-group">
+                                                
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Привет, как у тебя дела?</span>
+                            <span class="dialogue__time-message">16:40</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialogue">
+                    <div class="dialogue__icon">
+                        <img src="./img/photo/andrew-photo.jpg" alt="">
+                    </div>
+                    <div class="dialogue__message-group">
+                                                
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Что это вообще было?</span>
+                            <span class="dialogue__time-message">16:43</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dialogue">
+                    <div class="dialogue__icon">
+                        <img src="./img/photo/my-photo.jpg" alt="">
+                    </div>
+                    <div class="dialogue__message-group">
+                                                
+                        <div class="dialogue__message">
+                            <span class="dialogue__text">Извини за спам, тестирую чатик</span>
+                            <span class="dialogue__time-message">16:44</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </main>            
+        <footer class="footer">
+            <div class="footer__wrapper">
+                <button class="footer__attach">
+                    <img src="./img/footer/paperclip-icon.svg" alt="" srcset="">
+                </button>
+                <input class="footer__input" type="text" placeholder="Написать сообщение...">
+                <button class="footer__smile">
+                    <img src="./img/footer/smile-icon.svg" alt="" srcset="">
+                </button>
+                <button class="footer__send-button">
+                    <img src="./img/footer/send-icon.svg" alt="" srcset="">
+                </button>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

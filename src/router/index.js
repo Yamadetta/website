@@ -20,7 +20,7 @@ const routeOptions = [
   {
     path: '/projects',
     name: "Projects",
-    component: Projects,
+    // component: Projects,
     meta: {
       title: 'Портфолио'
     }
@@ -28,7 +28,7 @@ const routeOptions = [
   {
     path: '/projects/:name',
     name: "ProjectPage",
-    component: ProjectPage,
+    // component: ProjectPage,
     meta: {
       title: 'Проект'
     }
