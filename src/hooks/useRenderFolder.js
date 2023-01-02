@@ -26,12 +26,12 @@ export const renderFolder = (folderMap) => {
     result =
       /* html */
       `<div class="folder"> 
-        <div class="folder__title fold">
+        <div class="folder__title">
           <img class="folder__icon folder__icon--open" src="${require("@/assets/code-preview-icons/default_root_folder_opened.svg")}" alt="">
           <img class="folder__icon folder__icon--closed" src="${require("@/assets/code-preview-icons/default_root_folder.svg")}" alt="">
           <span>${route.params.name}</span>
         </div>
-        <div class="folder__files  hidden">`;
+        <div class="folder__files">`;
   }
 
   for (const key in folderMap.entries) {

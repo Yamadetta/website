@@ -1,7 +1,7 @@
 <template>
-  <div ref="codePreview" class="code-preview">
+  <div :style="{ height: codePreviewHeight }" class="code-preview">
     <div class="code-preview__header">
-      <div @mousedown="resize" class="resizer"></div>
+      <div @mousedown="$emit('resize')" class="resizer"></div>
       <div class="title">Исходный код проекта</div>
       <div class="close-button" @click="$emit('close')"></div>
     </div>
@@ -16,6 +16,10 @@
 
 
 <!-- https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+css-extras+git+ignore+json+scss&plugins=line-numbers+autolinker+highlight-keywords+inline-color+match-braces -->
+
+
+
+
 <script>
 import { renderFolder } from "@/hooks/useRenderFolder.js";
 import CodePreviewWindow from "@/components/CodePreviewWindow.vue";
@@ -27,10 +31,14 @@ export default {
       type: Object,
       required: true,
     },
+    codePreviewHeight: {
+      type: String,
+      default: "auto",
+    },
   },
+
   data() {
     return {
-      folderTree: "",
       file: {
         content: "",
         extension: "",
@@ -59,16 +67,12 @@ export default {
       folder.querySelector(".folder__files").classList.toggle("hidden");
       folder.querySelector(".folder__title").classList.toggle("fold");
     },
-
-    resize() {
-      this.$emit("resize", this.$refs.codePreview);
-    },
   },
 
   mounted() {
     // document
     //   .querySelector(
-    //     '[data-path="/projects/center-logistic/source/gulp/config/plugins.js"]'
+    //     '[data-path="/projects/center-logistic/source/gulpfile.js"]'
     //   )
     //   .click();
   },
@@ -86,6 +90,8 @@ export default {
   flex-direction: column;
   background-color: var(--basic-card-bg-color);
   height: 30vh;
+  min-height: 100px;
+  max-height: 90vh;
 
   &__header {
     position: relative;
@@ -107,6 +113,12 @@ export default {
       height: 4px;
 
       cursor: row-resize;
+
+      transition: background-color 0.1s linear;
+
+      &:hover {
+        background-color: #944aff;
+      }
     }
 
     .title {
@@ -149,16 +161,18 @@ export default {
   }
 
   &__body {
-    padding: 0 1rem 1rem 1rem;
+    padding: 0 0 1rem 0;
     display: flex;
     max-height: calc(100% - 50px);
+    height: 100%;
   }
 }
 .folder-tree {
   max-width: 15%;
   min-width: 10%;
   overflow: auto;
-  padding: 0 1rem 0 0;
+  padding: 0 1rem 0 0.5rem;
+  background-color: var(--basic-card-bg-color-dark);
 }
 
 .code-content {

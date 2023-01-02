@@ -1,12 +1,15 @@
 <template>
-  <main ref="main">
+  <main :style="{ height: mainHeight }">
     <iframe seamless :src="iframeLink" frameborder="0"></iframe>
     <div v-if="isResize" class="mask"></div>
     <div class="project-controls-wrapper">
       <button class="project-controls main-button">
         <inline-svg :src="require('@/assets/icons/settings-icon.svg')" />
       </button>
-      <button class="project-controls description-button">
+      <button
+        class="project-controls description-button"
+        @click="toggleDescription"
+      >
         <inline-svg :src="require('@/assets/icons/description-icon.svg')" />
       </button>
       <button
@@ -16,9 +19,22 @@
         <inline-svg :src="require('@/assets/icons/code-window.svg')" />
       </button>
     </div>
+    <div
+      v-if="isShowDescription"
+      @click="toggleDescription"
+      class="description-bg-mask"
+    ></div>
+
+    <basic-card :class="{ show: isShowDescription }" class="description">
+      Данное окно мессенджера было сделано по требованиям тестового задания в
+      вакансии для приема на работу. Это мой первый проект, в котором я
+      полностью реализовал методологию БЭМ и применил препроцессор Scss. Окно не
+      адаптировано под мобильные устройства.
+    </basic-card>
   </main>
 
   <code-preview
+    :codePreviewHeight="codePreviewHeight"
     @close="codePreviewSwitch"
     @resize="resize"
     :folderMap="projectMap"
@@ -37,6 +53,9 @@ export default {
       codePreview: false,
       projectMap: {},
       isResize: false,
+      mainHeight: "100vh",
+      codePreviewHeight: "0px",
+      isShowDescription: false,
     };
   },
   mounted() {
@@ -47,6 +66,12 @@ export default {
     link = link.replace("//", "/");
 
     this.iframeLink = link;
+    // this.codePreviewSwitch();
+    window.addEventListener("resize", this.normalaizeHeight);
+  },
+
+  unmounted() {
+    window.removeEventListener("resize", this.normalaizeHeight);
   },
   methods: {
     async codePreviewSwitch() {
@@ -61,29 +86,23 @@ export default {
       }
 
       this.codePreview = this.codePreview ? false : true;
-      this.$refs.main.style.height = "";
+      this.normalaizeHeight();
     },
-    resize(codePreviewEl) {
-      let main = {
-        el: this.$refs.main,
-        startHeight: 0,
-      };
 
-      let codePreview = {
-        el: codePreviewEl,
-        startHeight: 0,
-      };
+    normalaizeHeight() {
+      if (this.codePreview) {
+        this.mainHeight = `${innerHeight / 2}px`;
+        this.codePreviewHeight = `${innerHeight / 2}px`;
+      } else {
+        this.mainHeight = "";
+      }
+    },
 
-      main.height = main.el.offsetHeight;
-      codePreview.height = codePreview.el.offsetHeight;
-
+    resize() {
       const doDrag = (e) => {
         this.isResize = true;
-        codePreview.el.style.height = `${innerHeight - e.screenY}px`;
-        main.el.style.height = `${e.screenY}px`;
-
-        // p.style.width = startWidth + e.clientX - startX + "px";
-        // p.style.height = startHeight + e.clientY - startY + "px";
+        this.codePreviewHeight = `${innerHeight - e.clientY}px`;
+        this.mainHeight = `${e.clientY}px`;
       };
 
       const stopDrag = (e) => {
@@ -98,6 +117,9 @@ export default {
       document.documentElement.addEventListener("mousemove", doDrag, false);
       document.documentElement.addEventListener("mouseup", stopDrag, false);
     },
+    toggleDescription() {
+      this.isShowDescription = this.isShowDescription ? false : true;
+    },
   },
 };
 </script>
@@ -108,6 +130,7 @@ main {
 
   height: 100vh;
   background-color: gray;
+  min-height: 10vh;
 }
 iframe {
   display: block;
@@ -124,6 +147,8 @@ iframe {
   bottom: 0;
   width: 100%;
   height: 100%;
+  z-index: 99;
+  user-select: none;
 }
 
 .project-controls-wrapper {
@@ -133,6 +158,7 @@ iframe {
 
   width: 60px;
   height: 60px;
+  z-index: 2;
 
   animation: hide-animation 0.2s linear 0s 1 normal forwards;
 
@@ -230,6 +256,34 @@ iframe {
     transform: translateX(0%);
     opacity: 0;
   }
+}
+
+.description {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  max-width: 420px;
+  z-index: 1;
+  width: 100%;
+
+  font-size: 1.5rem;
+
+  transform: translateX(100%);
+
+  transition: transform 0.2s ease-out;
+
+  &.show {
+    transform: translateX(0%);
+  }
+}
+.description-bg-mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #0000005e;
 }
 </style>
 

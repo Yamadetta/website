@@ -50,6 +50,7 @@ section
   --white-text-color: #dddddd;
   --basic-card-bg-color: #2f244b;
   --basic-card-bg-color-light: #3d2e65;
+  --basic-card-bg-color-dark: #211837;
 }
 
 body {
@@ -115,5 +116,28 @@ svg {
   path {
     fill: var(--white-text-color);
   }
+}
+
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffffd4;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #683fa8;
+
+  -webkit-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #8051ca;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #333;
 }
 </style>
