@@ -5,6 +5,8 @@ import Page404 from "@/pages/Page404";
 
 import { createRouter, createWebHistory } from "vue-router";
 
+// import store from '@/store';
+
 const routeOptions = [
   {
     path: '/',
@@ -67,12 +69,14 @@ const router = createRouter({
   routes,
 });
 
+
 router.beforeEach((to, from, next) => {
   if (to.meta.title.includes('#')) {
     document.title = to.meta.title.replace('#', to.params.id);
   } else {
     document.title = `${to.meta.title}`;
   }
+
   next();
 });
 

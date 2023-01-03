@@ -3,7 +3,7 @@
     <div class="code-preview__header">
       <div @mousedown="$emit('resize')" class="resizer"></div>
       <div class="title">Исходный код проекта</div>
-      <div class="close-button" @click="$emit('close')"></div>
+      <close-button @click="$emit('close')" />
     </div>
 
     <div class="code-preview__body">

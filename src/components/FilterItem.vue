@@ -81,6 +81,10 @@ export default {
       background-color: #564192;
     }
   }
+
+  @media (max-width: 768px) {
+    background-color: var(--basic-card-bg-color-dark-transparent);
+  }
 }
 
 /* Default */

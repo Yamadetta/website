@@ -1,13 +1,24 @@
 <template>
   <div class="projects">
-    <aside class="filter">
-      <projects-filter @sectionChanged="filterArray" :sortList="sortList" />
-    </aside>
+    <projects-filter
+      @closeFilter="filterToggle"
+      :isShowFilter="isShowFilter"
+      :isLoading="isLoading"
+      :sortList="sortList"
+    />
     <main>
-      <basic-card ref="projectsCard" class="projects-card">
+      <basic-card class="projects-card" ref="projectsCard">
         <div class="projects-card__header">
           <h1 class="title">Проекты</h1>
-          <my-select v-model="currentSortType" :options="sortTypes" />
+          <div class="projects-card__controls">
+            <my-select v-model="currentSortType" :options="sortTypes" />
+
+            <button class="filter-toggle" @click="filterToggle">
+              <inline-svg
+                :src="require('@/assets/icons/filter-icon.svg')"
+              ></inline-svg>
+            </button>
+          </div>
         </div>
 
         <section class="projects-card__body" v-if="!isLoading">
@@ -43,6 +54,7 @@ export default {
       ],
 
       currentSortType: "new",
+      isShowFilter: false,
     };
   },
 
@@ -94,6 +106,11 @@ export default {
 
         return projectFlag;
       });
+    },
+
+    filterToggle() {
+      this.isShowFilter = this.isShowFilter ? false : true;
+      this.$store.commit("setAboveElement", this.isShowFilter);
     },
   },
 
@@ -169,7 +186,6 @@ export default {
   margin: -1px 0 !important;
   transform: translateY(-120px);
 }
-
 .projects-list-move {
   transition: transform 0.8s ease;
 }
@@ -195,7 +211,6 @@ export default {
   gap: 1rem;
 
   margin: 0 auto;
-  padding: 1rem;
 
   max-width: 1500px;
   width: 100%;
@@ -203,15 +218,6 @@ export default {
 
 main {
   flex-grow: 1;
-}
-
-.filter {
-  max-width: 20%;
-  width: 100%;
-
-  .card {
-    width: 100%;
-  }
 }
 
 .projects-card {
@@ -222,17 +228,31 @@ main {
   &__header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem;
 
     margin-bottom: 1rem;
 
     h1.title {
-      font-size: 2.5rem;
+      font-size: 2.2rem;
     }
 
     .select-wrapper {
       margin-left: auto;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-left: auto;
+
+    @media (min-width: 769px) {
+      .filter-toggle {
+        display: none;
+      }
     }
   }
 

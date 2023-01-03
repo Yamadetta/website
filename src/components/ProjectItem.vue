@@ -85,8 +85,10 @@ export default {
   transition: box-shadow 0.2s ease-out;
 
   &.card {
-    margin-bottom: 1rem;
-    padding: calc(1% + 1px) calc(1% + 1px);
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+    padding: calc(10px + 1px);
   }
 
   .title {
@@ -95,7 +97,7 @@ export default {
   }
 
   h2 {
-    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+    font-size: 1.7rem;
     width: fit-content;
   }
 
@@ -111,9 +113,11 @@ export default {
   }
 
   &:hover {
-    border: 1px solid var(--border-color);
-    padding: 1% 1%;
-    box-shadow: 0px 6px 10px 0px rgb(0 0 0 / 60%);
+    @media (min-width: 768px) {
+      border: 1px solid var(--border-color);
+      padding: 10px;
+      box-shadow: 0px 6px 10px 0px rgb(0 0 0 / 60%);
+    }
   }
 
   @media (max-width: 600px) {
@@ -125,7 +129,7 @@ export default {
     }
 
     &.card {
-      padding: 2%;
+      // padding: 2%;
     }
   }
 }

@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import MyHeader from "@/components/MyHeader.vue";
+import MyHeader from "@/components/header/MyHeader.vue";
 
 export default {
   components: { MyHeader },
@@ -12,10 +12,21 @@ export default {
     currentLocation() {
       return this.$route.name;
     },
+    aboveElement() {
+      return this.$store.state.aboveElement;
+    },
   },
+
   watch: {
     currentLocation() {
       document.body.className = this.currentLocation;
+    },
+    aboveElement() {
+      if (this.aboveElement) {
+        document.body.classList.add("above-element");
+      } else {
+        document.body.classList.remove("above-element");
+      }
     },
   },
 };
@@ -55,7 +66,12 @@ section
   --white-text-color: #dddddd;
   --basic-card-bg-color: #2f244b;
   --basic-card-bg-color-light: #3d2e65;
+  --basic-card-bg-color-light-2: #553d7a;
+  --basic-card-bg-color-light-3: #7f58a5;
   --basic-card-bg-color-dark: #211837;
+  --basic-card-bg-color-dark-transparent: #0d0819e8;
+
+  --header-height: 45px;
 }
 
 body {
@@ -66,7 +82,11 @@ body {
   min-height: 100%;
 }
 
-.background-mask {
+.above-element {
+  overflow: hidden;
+}
+
+.background {
   min-height: 100vh;
   opacity: 0.9;
   background-image: repeating-radial-gradient(
@@ -87,6 +107,29 @@ body {
   100% {
     background-position: 0% 50%;
   }
+}
+
+#app {
+  @media (max-width: 768px) {
+    padding-top: var(--header-height);
+  }
+}
+
+.ProjectPage {
+  #app {
+    main {
+      margin: 0;
+    }
+    @media (max-width: 768px) {
+      padding-top: 0;
+    }
+
+    // !!!!!!! Продумать как это всё сделать с margin
+  }
+}
+
+main {
+  margin: 1rem 1%;
 }
 
 .underline {
