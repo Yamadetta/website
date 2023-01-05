@@ -1,7 +1,11 @@
 <template>
   <div :style="{ height: codePreviewHeight }" class="code-preview">
     <div class="code-preview__header">
-      <div @mousedown="$emit('resize')" class="resizer"></div>
+      <div
+        @mousedown="$emit('resize')"
+        @touchstart="$emit('resize')"
+        class="resizer"
+      ></div>
       <div class="title">Исходный код проекта</div>
       <close-button @click="$emit('close')" />
     </div>
@@ -118,6 +122,15 @@ export default {
 
       &:hover {
         background-color: #944aff;
+      }
+
+      @media (max-width: 768px) {
+        background-color: #944aff;
+
+        width: 30%;
+        height: 6px;
+        left: 50%;
+        transform: translateX(-50%);
       }
     }
 

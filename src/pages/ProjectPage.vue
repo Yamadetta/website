@@ -101,8 +101,16 @@ export default {
     resize() {
       const doDrag = (e) => {
         this.isResize = true;
-        this.codePreviewHeight = `${innerHeight - e.clientY}px`;
-        this.mainHeight = `${e.clientY}px`;
+        console.log(e);
+        if (e.type == "mousemove") {
+          this.codePreviewHeight = `${innerHeight - e.clientY}px`;
+          this.mainHeight = `${e.clientY}px`;
+        } else if (e.type == "touchmove") {
+          this.codePreviewHeight = `${
+            innerHeight - e.targetTouches[0].clientY
+          }px`;
+          this.mainHeight = `${e.targetTouches[0].clientY}px`;
+        }
       };
 
       const stopDrag = (e) => {
@@ -111,11 +119,18 @@ export default {
           doDrag,
           false
         );
+        document.documentElement.removeEventListener(
+          "touchmove",
+          doDrag,
+          false
+        );
         this.isResize = false;
       };
 
       document.documentElement.addEventListener("mousemove", doDrag, false);
       document.documentElement.addEventListener("mouseup", stopDrag, false);
+      document.documentElement.addEventListener("touchmove", doDrag, false);
+      document.documentElement.addEventListener("touchend", stopDrag, false);
     },
     toggleDescription() {
       this.isShowDescription = this.isShowDescription ? false : true;
