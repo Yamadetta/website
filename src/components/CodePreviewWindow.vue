@@ -34,3 +34,9 @@ export default {
 <style lang="scss" scoped>
 @import "@/scss/prism.css";
 </style>
+
+<style lang="scss">
+.code-content pre.line-numbers.rainbow-braces.match-braces {
+  width: fit-content;
+}
+</style>

@@ -34,26 +34,38 @@ export default {
 
 <!-- 
 
-  Сделать нормальную кнопку настроек проекта.
-  Сделать нормальный вызов svg icon, а не то, что сейчас. https://www.npmjs.com/package/vue-inline-svg#vue-v3npm
-
-
 header
 footer
 main Примечание: В документе не должно быть более одного элемента <main>. Элемент <main> не должен быть потомком элемента <article>, <aside>, <footer>, <header>, или <nav> элементов.
 section
-
-
 <address>	Определяет контактные данные автора/владельца документа
 <article>	Определяет статью
 <aside>	Определяет содержание в стороне от содержимого страницы (для фильтра).
 
 <dialog>	Определяет диалоговое окно или окно
 
+===============================================================
+
+
   Сделать сортировку, чтобы выводились папки, потом файлы. Файлы должны сортироваться по алфавиту с группировкой по типу файла.
   Поправить цвета хайлайтинга кода
 
-  Сжать изображения в превью проекта
+  На мобилке основную карточку расширить на весь экран.
+
+
+  Просмотр кода.
+  Для мобилки сделать:
+    1. Один переключатель
+    2. Выделение пунктов меню
+    3. Лоадер для пункта меню
+    4. Нормальный ресайз окна + зум окна
+    5. Нормальное позиционирование кнопки
+
+  Для ПК:
+    Лоадер для кода, что он загружается и  через призму генерится
+    Эффект при наведении на крестик и шапку
+    А также ресайз окна кода и окна папок
+
 
  -->
 
@@ -81,11 +93,9 @@ body {
   background-repeat: no-repeat;
   min-height: 100%;
 }
-
 .above-element {
   overflow: hidden;
 }
-
 .background {
   min-height: 100vh;
   opacity: 0.9;
@@ -96,7 +106,6 @@ body {
     ),
     repeating-linear-gradient(rgba(0, 255, 235, 0.78), rgba(255, 255, 255, 0));
 }
-
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -111,25 +120,10 @@ body {
 
 #app {
   @media (max-width: 768px) {
-    padding-top: var(--header-height);
+    padding-top: calc(var(--header-height) + 1rem);
   }
-}
-
-.ProjectPage {
-  #app {
-    main {
-      margin: 0;
-    }
-    @media (max-width: 768px) {
-      padding-top: 0;
-    }
-
-    // !!!!!!! Продумать как это всё сделать с margin
-  }
-}
-
-main {
-  margin: 1rem 1%;
+  position: relative;
+  z-index: 10;
 }
 
 .underline {
@@ -168,6 +162,7 @@ svg {
 
 ::-webkit-scrollbar {
   width: 14px;
+  height: 14px;
 }
 
 ::-webkit-scrollbar-track {
@@ -187,5 +182,9 @@ svg {
 
 ::-webkit-scrollbar-corner {
   background-color: #333;
+}
+
+::selection {
+  background: #8800bf;
 }
 </style>

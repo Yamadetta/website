@@ -29,6 +29,8 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
+  user-select: none;
+  overflow: hidden;
 
   &.blackout {
     background-color: #0000005e;

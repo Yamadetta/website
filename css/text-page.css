@@ -1,0 +1,81 @@
+.text {
+  margin-bottom: 50px;
+}
+.text__content {
+  max-width: 890px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #585858;
+}
+.text__content p {
+  text-indent: 20px;
+  margin-bottom: 15px;
+}
+.text__content h2,
+.text__content h3,
+.text__content h4,
+.text__content h5,
+.text__content h6 {
+  font-weight: bold;
+  color: #2C2C2C;
+  margin-bottom: 20px;
+}
+.text__content h1 {
+  font-size: 27px;
+}
+.text__content h2 {
+  font-size: 24px;
+}
+.text__content h3 {
+  font-size: 22px;
+}
+.text__content h4 {
+  font-size: 19px;
+}
+.text__content h5 {
+  font-size: 18px;
+}
+.text__content h6 {
+  font-size: 15px;
+}
+.text__content ul,
+.text__content ol {
+  margin-bottom: 25px;
+}
+.text__content li {
+  list-style-position: inside;
+}
+.text__content a {
+  color: #0D53F2;
+  text-decoration: none;
+}
+.text__content a:hover {
+  text-decoration: underline;
+}
+.text__content img {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2117647059);
+  border-radius: 4px;
+  margin: 0 auto 15px;
+}
+.text__content hr {
+  position: relative;
+  border: none;
+  display: block;
+  margin: 0;
+  padding: 20px;
+}
+.text__content hr::before, .text__content hr::after {
+  content: "";
+  width: 50%;
+  height: 3px;
+  position: absolute;
+  bottom: 50%;
+}
+.text__content hr::before {
+  background-color: #0D53F2;
+  left: 0;
+}
+.text__content hr::after {
+  background-color: black;
+  right: 0;
+}

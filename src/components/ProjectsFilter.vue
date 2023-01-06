@@ -67,7 +67,7 @@ h3 {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 200;
     max-width: 100vw;
     height: 100vh;
 
@@ -87,7 +87,6 @@ h3 {
 
     &.show {
       transform: translateX(0);
-      z-index: 200;
     }
   }
 }

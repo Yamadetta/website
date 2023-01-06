@@ -1,9 +1,10 @@
 <template>
   <div :style="{ height: codePreviewHeight }" class="code-preview">
     <div class="code-preview__header">
+      <background-mask :blackout="false" :zIndex="100" v-if="isResize" />
       <div
-        @mousedown="$emit('resize')"
-        @touchstart="$emit('resize')"
+        @mousedown="$emit('resize', $event)"
+        @touchstart="$emit('resize', $event)"
         class="resizer"
       ></div>
       <div class="title">Исходный код проекта</div>
@@ -11,8 +12,25 @@
     </div>
 
     <div class="code-preview__body">
-      <div @click="foldFolder" v-html="folderTree" class="folder-tree"></div>
-      <code-preview-window :file="file" />
+      <div class="code-preview__controls">
+        <button class="show-folders" @click="showFolders">
+          <inline-svg
+            :src="require('@/assets/code-preview-icons/default_folder.svg')"
+          />
+        </button>
+        <button class="show-code" @click="showCode">
+          <inline-svg :src="require('@/assets/icons/code-window.svg')" />
+        </button>
+      </div>
+      <div class="code-preview__content">
+        <div
+          @click="foldFolder"
+          v-html="folderTree"
+          class="folder-tree"
+          :class="{ show: isShowFolders }"
+        ></div>
+        <code-preview-window :file="file" :class="{ show: isShowCode }" />
+      </div>
     </div>
   </div>
 </template>
@@ -39,6 +57,10 @@ export default {
       type: String,
       default: "auto",
     },
+    isResize: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   data() {
@@ -48,6 +70,8 @@ export default {
         extension: "",
         path: "",
       },
+      isShowCode: false,
+      isShowFolders: true,
     };
   },
   methods: {
@@ -70,6 +94,14 @@ export default {
 
       folder.querySelector(".folder__files").classList.toggle("hidden");
       folder.querySelector(".folder__title").classList.toggle("fold");
+    },
+    showCode() {
+      this.isShowCode = true;
+      this.isShowFolders = false;
+    },
+    showFolders() {
+      this.isShowCode = false;
+      this.isShowFolders = true;
     },
   },
 
@@ -120,8 +152,14 @@ export default {
 
       transition: background-color 0.1s linear;
 
+      z-index: 201;
+
       &:hover {
         background-color: #944aff;
+      }
+
+      &.active {
+        background-color: #b800ff;
       }
 
       @media (max-width: 768px) {
@@ -174,12 +212,54 @@ export default {
   }
 
   &__body {
-    padding: 0 0 1rem 0;
-    display: flex;
-    max-height: calc(100% - 50px);
     height: 100%;
+    max-height: calc(100% - 50px);
+  }
+
+  &__controls {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    &__body {
+      display: flex;
+    }
+
+    &__controls {
+      display: block;
+      width: 30px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    height: 100%;
+
+    padding: 0 0 1rem 0;
+    flex-grow: 1;
+
+    @media (max-width: 768px) {
+      width: calc(100% - 30px);
+    }
+
+    & > div {
+      @media (max-width: 768px) {
+        &.show {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        &:not(.show) {
+          width: 0%;
+          min-width: 0%;
+          padding: 0;
+          margin: 0;
+        }
+      }
+    }
   }
 }
+
 .folder-tree {
   max-width: 15%;
   min-width: 10%;
@@ -190,9 +270,14 @@ export default {
 
 .code-content {
   color: var(--white-text-color);
+  background-color: #1e1e1e;
   width: 100%;
   overflow: auto;
-  padding-left: 1rem;
+  margin-left: 1rem;
+
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
 }
 
 .folder {

@@ -1,11 +1,15 @@
 <template>
   <main :style="{ height: mainHeight }">
     <iframe seamless :src="iframeLink" frameborder="0"></iframe>
-    <div v-if="isResize" class="mask"></div>
-    <div class="project-controls-wrapper">
-      <button class="project-controls main-button">
+
+    <div class="project-controls-wrapper" :class="{ active: isAdditionalMenu }">
+      <button
+        class="project-controls main-button"
+        @click="toggleAdditionalMenu"
+      >
         <inline-svg :src="require('@/assets/icons/settings-icon.svg')" />
       </button>
+
       <button
         class="project-controls description-button"
         @click="toggleDescription"
@@ -19,11 +23,12 @@
         <inline-svg :src="require('@/assets/icons/code-window.svg')" />
       </button>
     </div>
-    <div
+
+    <background-mask
+      :zIndex="99"
       v-if="isShowDescription"
       @click="toggleDescription"
-      class="description-bg-mask"
-    ></div>
+    />
 
     <basic-card :class="{ show: isShowDescription }" class="description">
       Данное окно мессенджера было сделано по требованиям тестового задания в
@@ -34,11 +39,12 @@
   </main>
 
   <code-preview
-    :codePreviewHeight="codePreviewHeight"
-    @close="codePreviewSwitch"
-    @resize="resize"
-    :folderMap="projectMap"
     v-if="codePreview"
+    @resize="resize($event)"
+    @close="codePreviewSwitch"
+    :isResize="isResize"
+    :codePreviewHeight="codePreviewHeight"
+    :folderMap="projectMap"
   />
 </template>
 
@@ -56,6 +62,7 @@ export default {
       mainHeight: "100vh",
       codePreviewHeight: "0px",
       isShowDescription: false,
+      isAdditionalMenu: false,
     };
   },
   mounted() {
@@ -75,6 +82,8 @@ export default {
   },
   methods: {
     async codePreviewSwitch() {
+      this.isAdditionalMenu = false;
+
       if (Object.keys(this.projectMap).length === 0) {
         await fetch(`/projects/${this.$route.params.name}/source/map.json`)
           .then((response) => {
@@ -98,10 +107,9 @@ export default {
       }
     },
 
-    resize() {
+    resize(e) {
       const doDrag = (e) => {
         this.isResize = true;
-        console.log(e);
         if (e.type == "mousemove") {
           this.codePreviewHeight = `${innerHeight - e.clientY}px`;
           this.mainHeight = `${e.clientY}px`;
@@ -114,6 +122,8 @@ export default {
       };
 
       const stopDrag = (e) => {
+        e.target.classList.remove("active");
+
         document.documentElement.removeEventListener(
           "mousemove",
           doDrag,
@@ -127,6 +137,7 @@ export default {
         this.isResize = false;
       };
 
+      e.target.classList.add("active");
       document.documentElement.addEventListener("mousemove", doDrag, false);
       document.documentElement.addEventListener("mouseup", stopDrag, false);
       document.documentElement.addEventListener("touchmove", doDrag, false);
@@ -134,6 +145,10 @@ export default {
     },
     toggleDescription() {
       this.isShowDescription = this.isShowDescription ? false : true;
+      this.isAdditionalMenu = false;
+    },
+    toggleAdditionalMenu() {
+      this.isAdditionalMenu = this.isAdditionalMenu ? false : true;
     },
   },
 };
@@ -154,18 +169,6 @@ iframe {
   height: 100%;
 }
 
-.mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 99;
-  user-select: none;
-}
-
 .project-controls-wrapper {
   position: absolute;
   right: 50px;
@@ -177,14 +180,43 @@ iframe {
 
   animation: hide-animation 0.2s linear 0s 1 normal forwards;
 
-  &:hover {
+  .main-button {
+    z-index: 2;
+  }
+  &.active {
     width: 150px;
     height: 150px;
+
+    .main-button {
+      background-color: var(--basic-card-bg-color-light-2);
+      box-shadow: 1px 3px 10px var(--basic-card-bg-color);
+    }
     .description-button {
       animation: description-button-in 0.2s ease-out 0s 1 normal forwards;
     }
     .preview-code-button {
       animation: preview-code-button-in 0.2s ease-out 0s 1 normal forwards;
+    }
+  }
+
+  @media (pointer: fine) {
+    &:hover {
+      width: 150px;
+      height: 150px;
+      .description-button {
+        animation: description-button-in 0.2s ease-out 0s 1 normal forwards;
+      }
+      .preview-code-button {
+        animation: preview-code-button-in 0.2s ease-out 0s 1 normal forwards;
+      }
+    }
+
+    .project-controls {
+      &:active,
+      &:hover {
+        background-color: var(--basic-card-bg-color-light-2);
+        box-shadow: 1px 3px 10px var(--basic-card-bg-color);
+      }
     }
   }
 }
@@ -201,9 +233,8 @@ iframe {
 
   background-color: var(--basic-card-bg-color);
   box-shadow: 1px 3px 6px var(--basic-card-bg-color);
-}
 
-.main-button {
+  transition: box-shadow 0.2s ease-out, background-color 0.2s ease-out;
 }
 
 .description-button {
@@ -279,7 +310,7 @@ iframe {
   right: 0;
   height: 100%;
   max-width: 420px;
-  z-index: 1;
+  z-index: 100;
   width: 100%;
 
   font-size: 1.5rem;
@@ -291,14 +322,6 @@ iframe {
   &.show {
     transform: translateX(0%);
   }
-}
-.description-bg-mask {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #0000005e;
 }
 </style>
 

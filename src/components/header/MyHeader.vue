@@ -75,6 +75,7 @@ header {
   box-shadow: 1px 3px 6px var(--basic-card-bg-color);
 
   padding: 1rem;
+  margin-bottom: 1rem;
 
   @media (max-width: 768px) {
     position: fixed;
