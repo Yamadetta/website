@@ -11,11 +11,11 @@ const routeOptions = [
   {
     path: '/',
     name: "Main",
-    component: Main,
     meta: {
       title: 'Главная страница'
     }
   },
+
   {
     path: '/projects',
     name: "Projects",
@@ -31,12 +31,20 @@ const routeOptions = [
       title: 'Проект'
     }
   },
+
   {
     path: '/articles',
     name: "Articles",
     component: Articles,
     meta: {
       title: 'Статьи'
+    }
+  },
+  {
+    path: '/articles/:name',
+    name: "ArticlePage",
+    meta: {
+      title: 'Статья'
     }
   },
 

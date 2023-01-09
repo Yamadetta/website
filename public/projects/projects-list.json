@@ -38,7 +38,7 @@
     "technologies": [
       {
         "name": "html",
-        "percentage": "10%"
+        "percentage": "80%"
       },
       {
         "name": "css",
@@ -65,12 +65,12 @@
         "percentage": "10%"
       },
       {
-        "name": "css",
-        "percentage": "20%"
+        "name": "scss",
+        "percentage": "40%"
       },
       {
         "name": "javascript",
-        "percentage": "70%"
+        "percentage": "50%"
       }
     ],
     "previewimage": {
@@ -90,16 +90,20 @@
     "technologies": [
       {
         "name": "html",
-        "percentage": "10%",
+        "percentage": "48.2%",
         "hidden": true
       },
       {
         "name": "scss",
-        "percentage": "20%"
+        "percentage": "29.3%"
       },
       {
         "name": "javascript",
-        "percentage": "70%"
+        "percentage": "12.5%"
+      },
+      {
+        "name": "jquery",
+        "percentage": "10%"
       }
     ],
     "previewimage": {
@@ -107,5 +111,38 @@
       "desktop": "/preview/desktop.png"
     },
     "folder": "center-logistic"
+  },
+  {
+    "id": "5",
+    "title": "Приложение на Vue3",
+    "description": "Приложение на Vue3",
+    "time": {
+      "human": "22 дек 2022",
+      "machine": "2022-12-22 17:46"
+    },
+    "technologies": [
+      {
+        "name": "vue",
+        "percentage": "72%",
+        "hidden": true
+      },
+      {
+        "name": "scss",
+        "percentage": "6.25%"
+      },
+      {
+        "name": "css",
+        "percentage": "6.25"
+      },
+      {
+        "name": "javascript",
+        "percentage": "15.5%"
+      }
+    ],
+    "previewimage": {
+      "mobile": "/preview/mobile.png",
+      "desktop": "/preview/desktop.png"
+    },
+    "folder": "vue3-app"
   }
 ]

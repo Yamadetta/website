@@ -6,11 +6,7 @@
     </div>
 
     <div v-if="!isLoading" class="filter__options">
-      <filter-item
-        v-for="sortItem in sortList"
-        :key="sortItem.id"
-        :sortItem="sortItem"
-      />
+      <filter-item v-for="sortItem in sortList" :key="sortItem.id" :sortItem="sortItem" />
     </div>
     <my-loader v-if="isLoading" />
   </aside>
@@ -48,7 +44,6 @@ h3 {
   width: 100%;
   height: fit-content;
 
-  margin-top: 1rem;
 
   &__header {
     display: flex;

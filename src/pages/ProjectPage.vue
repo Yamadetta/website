@@ -30,6 +30,7 @@
       @click="toggleDescription"
     />
 
+
     <basic-card :class="{ show: isShowDescription }" class="description">
       Данное окно мессенджера было сделано по требованиям тестового задания в
       вакансии для приема на работу. Это мой первый проект, в котором я
@@ -85,7 +86,7 @@ export default {
       this.isAdditionalMenu = false;
 
       if (Object.keys(this.projectMap).length === 0) {
-        await fetch(`/projects/${this.$route.params.name}/source/map.json`)
+        await fetch(`/projects/${this.$route.params.name}/preview/source/map.json`)
           .then((response) => {
             return response.json();
           })

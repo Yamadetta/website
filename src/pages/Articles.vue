@@ -5,11 +5,7 @@
         <h1 class="title">Статьи</h1>
       </div>
       <section class="articles__body" v-if="!isLoading">
-        <article-item
-          v-for="article in articles"
-          :key="article.id"
-          :article="article"
-        />
+        <article-item v-for="article in articles" :key="article.id" :article="article" />
       </section>
       <my-loader v-if="isLoading" />
     </basic-card>
@@ -28,11 +24,9 @@ export default {
   },
   mounted() {
     (async () => {
-      let response = await fetch(`/articles/articles-list.json`).then(
-        (response) => {
-          return response.json();
-        }
-      );
+      let response = await fetch(`/articles/articles-list.json`).then((response) => {
+        return response.json();
+      });
 
       this.articles = response;
       this.isLoading = false;
@@ -47,8 +41,7 @@ export default {
   width: 100%;
   margin: 0 auto;
 
-  &__title {
-  }
+  &__title {}
 
   &__body {
     display: grid;
@@ -56,6 +49,9 @@ export default {
     gap: 1rem;
   }
 }
+
+
+
 .title {
   margin-bottom: 1rem;
 }

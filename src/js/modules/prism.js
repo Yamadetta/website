@@ -1443,6 +1443,7 @@ Object.defineProperty(Prism.languages.markup.tag, 'addAttribute', {
 });
 
 Prism.languages.html = Prism.languages.markup;
+Prism.languages.vue = Prism.languages.markup;
 Prism.languages.mathml = Prism.languages.markup;
 Prism.languages.svg = Prism.languages.markup;
 

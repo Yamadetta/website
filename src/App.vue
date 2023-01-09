@@ -65,17 +65,25 @@ section
     Лоадер для кода, что он загружается и  через призму генерится
     Эффект при наведении на крестик и шапку
     А также ресайз окна кода и окна папок
+    Доработать страницу описания проекта. 
+    На главной странице добавить кнопку "посмотреть ещё" для страницы проектовы
+    Пофиксить padding для мобильной версии на странице проекта.
+    Доделать страницу 404
+ Делаю главную страницу, где просто баннер, вывод последних статей и проектов. Кнопка Telegram для связи. 
+      Также будет кнопка с возможностью скачать резюме в PDF. Но это позже. 
+
+ 
+  Перехожу к следующему проекту, где делаю реализацию крестиков и ноликов. Прописываю минимальные стили и базовую логику. 
 
 
  -->
-
-
 
 <style lang="scss">
 @import "@/scss/clear.scss";
 
 :root {
   --white-text-color: #dddddd;
+  --link-color: #7cd7ff;
   --basic-card-bg-color: #2f244b;
   --basic-card-bg-color-light: #3d2e65;
   --basic-card-bg-color-light-2: #553d7a;
@@ -93,26 +101,27 @@ body {
   background-repeat: no-repeat;
   min-height: 100%;
 }
+
 .above-element {
   overflow: hidden;
 }
+
 .background {
   min-height: 100vh;
-  opacity: 0.9;
-  background-image: repeating-radial-gradient(
-      circle at 0 0,
-      transparent 0,
-      #5055a8 12px
-    ),
+  // opacity: 0.9;
+  background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #5055a8 12px),
     repeating-linear-gradient(rgba(0, 255, 235, 0.78), rgba(255, 255, 255, 0));
 }
+
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -122,6 +131,7 @@ body {
   @media (max-width: 768px) {
     padding-top: calc(var(--header-height) + 1rem);
   }
+
   position: relative;
   z-index: 10;
 }
@@ -150,10 +160,24 @@ body {
   }
 }
 
+.link {
+  color: var(--link-color);
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &.title {
+    color: var(--white-text-color);
+    text-decoration: none;
+  }
+}
+
 svg {
   width: 100%;
   height: 100%;
   fill: var(--white-text-color);
+
   g,
   path {
     fill: var(--white-text-color);
