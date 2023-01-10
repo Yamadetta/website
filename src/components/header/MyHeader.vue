@@ -2,7 +2,7 @@
   <header :class="{ show: isShowHeader }">
     <div class="logo">
       <router-link class="link" to="/">
-        <img class="logo__img" src="@/assets/icons/logotype.jpg" alt="" />
+        <img class="logo__img" src="@/assets/icons/logotype-min.jpg" alt="" />
       </router-link>
     </div>
 

@@ -144,5 +144,38 @@
       "desktop": "/preview/desktop.png"
     },
     "folder": "vue3-app"
+  },
+  {
+    "id": "6",
+    "title": "Крестики и нолики",
+    "description": "Игра \"Крестики и нолики\" была сделана в качестве тестового задания",
+    "time": {
+      "human": "10 янв 2023",
+      "machine": "2023-01-10 13:13"
+    },
+    "technologies": [
+      {
+        "name": "vue",
+        "percentage": "72%",
+        "hidden": true
+      },
+      {
+        "name": "scss",
+        "percentage": "6.25%"
+      },
+      {
+        "name": "css",
+        "percentage": "6.25"
+      },
+      {
+        "name": "javascript",
+        "percentage": "15.5%"
+      }
+    ],
+    "previewimage": {
+      "mobile": "/preview/mobile.png",
+      "desktop": "/preview/desktop.png"
+    },
+    "folder": "tic-tac-toe"
   }
 ]
