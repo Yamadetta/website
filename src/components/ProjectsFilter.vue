@@ -6,7 +6,11 @@
     </div>
 
     <div v-if="!isLoading" class="filter__options">
-      <filter-item v-for="sortItem in sortList" :key="sortItem.id" :sortItem="sortItem" />
+      <filter-item
+        v-for="sortItem in sortList"
+        :key="sortItem.id"
+        :sortItem="sortItem"
+      />
     </div>
     <my-loader v-if="isLoading" />
   </aside>
@@ -43,7 +47,6 @@ h3 {
   min-width: 200px;
   width: 100%;
   height: fit-content;
-
 
   &__header {
     display: flex;

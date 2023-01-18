@@ -1,11 +1,20 @@
 <template>
   <basic-card class="project light">
-    <router-link :to="'/projects/' + project.folder + '/'" class="project__preview">
+    <router-link
+      :to="'/projects/' + project.folder + '/'"
+      class="project__preview"
+    >
       <div class="desktop">
         <div class="desktop__border">
           <div class="desktop__screen">
-            <img :src="'/projects/' + project.folder + project.previewimage.desktop"
-              :alt="'Изображение проекта ' + project.folder.replace('-', ' ') + ' на десктопе'" />
+            <img
+              :src="`/projects/${project.folder}${project.previewimage.desktop}`"
+              :alt="
+                'Изображение проекта ' +
+                project.folder.replaceAll('-', ' ') +
+                ' на десктопе'
+              "
+            />
           </div>
         </div>
       </div>
@@ -13,15 +22,21 @@
       <div class="smartphone">
         <div class="smartphone__border">
           <div class="smartphone__screen">
-            <img :src="'/projects/' + project.folder + project.previewimage.mobile"
-              :alt="'Изображение проекта ' + project.folder.replace('-', ' ') + ' на смартфоне'" />
+            <img
+              :src="`/projects/${project.folder}${project.previewimage.mobile}`"
+              :alt="
+                'Изображение проекта ' +
+                project.folder.replaceAll('-', ' ') +
+                ' на смартфоне'
+              "
+            />
           </div>
         </div>
       </div>
     </router-link>
 
     <div class="project__content">
-      <router-link class="title" :to="'/projects/' + project.folder + '/'">
+      <router-link class="title" :to="`/projects/${project.folder}/`">
         <h2 class="underline">{{ project.title }}</h2>
       </router-link>
 
@@ -29,7 +44,7 @@
 
       <div class="description">{{ project.description }}</div>
 
-      <div class="languages"></div>
+      <!-- <div class="languages"></div> -->
     </div>
   </basic-card>
 </template>
@@ -191,9 +206,11 @@ export default {
     box-shadow: 1px 3px 6px black;
 
     padding: 12% 3%;
-    background: linear-gradient(0deg,
-        rgba(228, 228, 228, 1) 78%,
-        rgb(214 214 214) 100%);
+    background: linear-gradient(
+      0deg,
+      rgba(228, 228, 228, 1) 78%,
+      rgb(214 214 214) 100%
+    );
     border-top-left-radius: 9% 6%;
     border-top-right-radius: 9% 6%;
     border-bottom-left-radius: 9% 6%;

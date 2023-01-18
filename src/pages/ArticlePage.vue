@@ -8,22 +8,20 @@
 export default {
   data() {
     return {
-      articleText: ''
+      articleText: "",
     };
   },
   methods: {},
   mounted() {
     (async () => {
-      let response = await fetch(`/articles/${this.$route.params.name}.html`).then(
-        (response) => {
-          return response.text();
-        }
-      );
+      let response = await fetch(
+        `/articles/${this.$route.params.name}.html`
+      ).then((response) => {
+        return response.text();
+      });
       this.articleText = response;
-
     })();
-  }
-
+  },
 };
 </script>
 

@@ -177,5 +177,37 @@
       "desktop": "/preview/desktop.png"
     },
     "folder": "tic-tac-toe"
+  },
+    {
+    "id": "7",
+    "title": "Интернет-магазин",
+    "description": "Макет интернет магазина с анимациями.",
+    "time": {
+      "human": "18 янв 2023",
+      "machine": "2023-01-18 14:54"
+    },
+    "technologies": [
+      {
+        "name": "html",
+        "percentage": "6.25%"
+      },
+      {
+        "name": "scss",
+        "percentage": "6.25%"
+      },
+      {
+        "name": "gulp",
+        "percentage": "6.25"
+      },
+      {
+        "name": "javascript",
+        "percentage": "15.5%"
+      }
+    ],
+    "previewimage": {
+      "mobile": "/preview/mobile.png",
+      "desktop": "/preview/desktop.png"
+    },
+    "folder": "shop"
   }
 ]

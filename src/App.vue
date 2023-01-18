@@ -111,7 +111,11 @@ body {
 .background {
   min-height: 100vh;
   // opacity: 0.9;
-  background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #5055a8 12px),
+  background-image: repeating-radial-gradient(
+      circle at 0 0,
+      transparent 0,
+      #5055a8 12px
+    ),
     repeating-linear-gradient(rgba(0, 255, 235, 0.78), rgba(255, 255, 255, 0));
 }
 
@@ -131,7 +135,7 @@ body {
 
 #app {
   @media (max-width: 768px) {
-    padding-top: calc(var(--header-height) + 1rem);
+    // padding-top: calc(var(--header-height) + 1rem);
   }
 
   position: relative;
