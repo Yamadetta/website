@@ -210,4 +210,38 @@
     },
     "folder": "shop"
   }
+  ,
+    {
+    "id": "8",
+    "title": "Форма авторизации",
+    "description": "В данном проекте реализовал объект формы и её валидацию с учетом composition API",
+    "time": {
+      "human": "06 фев 2023",
+      "machine": "2023-02-06 15:31"
+    },
+    "technologies": [
+      {
+        "name": "vue",
+        "percentage": "72%",
+        "hidden": true
+      },
+      {
+        "name": "scss",
+        "percentage": "6.25%"
+      },
+      {
+        "name": "css",
+        "percentage": "6.25"
+      },
+      {
+        "name": "javascript",
+        "percentage": "15.5%"
+      }
+    ],
+    "previewimage": {
+      "mobile": "/preview/mobile.png",
+      "desktop": "/preview/desktop.png"
+    },
+    "folder": "form-validation"
+  }
 ]

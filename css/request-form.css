@@ -1,0 +1,83 @@
+.request-form {
+  max-width: 400px;
+  background-color: #004AF2;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 1;
+}
+.request-form__header {
+  background-color: #033FC9;
+  padding: min(3vw, 20px) min(5vw, 30px);
+}
+.request-form__title {
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 1.6;
+}
+.request-form__description {
+  color: white;
+}
+.request-form--intro {
+  position: relative;
+  bottom: -30px;
+}
+@media (max-width: 767px) {
+  .request-form--intro {
+    position: static;
+    order: 2;
+  }
+}
+.request-form--blog {
+  margin-left: auto;
+}
+@media (max-width: 767px) {
+  .request-form--blog {
+    margin: 0;
+  }
+}
+
+.form {
+  padding: min(3vw, 20px) min(5vw, 30px);
+}
+.form .input {
+  display: block;
+  width: 100%;
+  background-color: unset;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  padding-bottom: 10px;
+  padding-left: 38px;
+  margin-bottom: 25px;
+  font-size: 16px;
+  color: white;
+  transition: border-color 0.2s linear;
+}
+.form .input::-moz-placeholder {
+  color: white;
+}
+.form .input:-ms-input-placeholder {
+  color: white;
+}
+.form .input::placeholder {
+  color: white;
+}
+.form .input:focus {
+  outline: none;
+  border-bottom-color: white;
+}
+.form .input--user {
+  background-image: url("@img/form-user-icon.svg");
+  background-repeat: no-repeat;
+  background-position: left 12px top 4px;
+}
+.form .input--phone {
+  background-image: url("@img/form-phone-icon.svg");
+  background-repeat: no-repeat;
+  background-position: left 12px top 4px;
+}
+.form .input--email {
+  background-image: url("@img/form-email-icon.svg");
+  background-repeat: no-repeat;
+  background-position: left 12px top 8px;
+}

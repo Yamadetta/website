@@ -1,0 +1,27 @@
+.benefits-list__title {
+  margin: 0 0 32px;
+  font-weight: 600;
+  font-size: 2rem;
+}
+.benefits-list__items {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(4, minmax(284px, 340px));
+  gap: 16px;
+  overflow-x: auto;
+}
+.benefits-list__item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  background-color: #f9f9fa;
+  border-radius: 4px;
+}
+.benefits-list__icon {
+  width: 32px;
+  height: 32px;
+}
+.benefits-list__text {
+  font-size: 1.15rem;
+}

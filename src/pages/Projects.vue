@@ -29,6 +29,12 @@
               :project="project"
             ></project-item>
           </transition-group>
+
+          <basic-card
+            v-if="projectsFiltered.length === 0"
+            class="empty-title light"
+            >Проектов с таким набором технологий нет...</basic-card
+          >
         </section>
 
         <my-loader v-if="isLoading" />
@@ -259,5 +265,11 @@ main {
   &__body {
     position: relative;
   }
+}
+
+.empty-title {
+  font-size: 2rem;
+  text-align: center;
+  width: 100%;
 }
 </style>

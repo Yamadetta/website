@@ -1,0 +1,98 @@
+.modal-window {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  padding: min(4vw, 25px);
+  background-color: #fff;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+}
+.modal-window__header {
+  margin-bottom: 20px;
+}
+.modal-window__title {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-size: min(6.6vw, 24px);
+  line-height: 1.1;
+  color: #004af2;
+  margin-bottom: 10px;
+}
+.modal-window__description {
+  font-size: min(5.4vw, 15px);
+  line-height: 1.4;
+  color: #2c2c2c;
+}
+.modal-window__footer {
+  border-top: 1px solid #E8E8E8;
+  margin-top: 25px;
+  padding-top: 25px;
+}
+.modal-window__footer-title {
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-size: min(5.5vw, 18px);
+  line-height: 1.1;
+  color: #2c2c2c;
+  margin-bottom: 10px;
+}
+.modal-window__footer-contacts {
+  font-size: min(5.4vw, 15px);
+  line-height: 1.4;
+  color: #2c2c2c;
+  font-style: normal;
+}
+.modal-window__footer-contacts a {
+  color: inherit;
+  text-decoration: none;
+}
+.modal-window__footer-contacts a:hover {
+  text-decoration: underline;
+}
+.modal-window__close-button {
+  background: none;
+  border: none;
+  position: absolute;
+  top: -30px;
+  right: -35px;
+  cursor: pointer;
+  transition: transform 0.2s linear;
+}
+.modal-window__close-button:hover {
+  transform: rotate(90deg);
+}
+@media (max-width: 767px) {
+  .modal-window__close-button {
+    right: 0;
+  }
+}
+.modal-window .form {
+  padding: 0;
+}
+.modal-window .form .input--dark {
+  border-bottom-color: #E8E8E8;
+  color: #2c2c2c;
+}
+.modal-window .form .input--dark::-moz-placeholder {
+  color: #2c2c2c;
+}
+.modal-window .form .input--dark:-ms-input-placeholder {
+  color: #2c2c2c;
+}
+.modal-window .form .input--dark::placeholder {
+  color: #2c2c2c;
+}
+.modal-window .form .input--dark:hover, .modal-window .form .input--dark:focus {
+  border-bottom-color: #707070;
+}
+.modal-window .form .input--dark.input--user {
+  background-image: url("@img/team-user-icon.svg");
+}
+.modal-window .form .input--dark.input--phone {
+  background-image: url("@img/team-phone-icon.svg");
+}
+.modal-window .form .input--dark.input--email {
+  background-image: url("@img/team-mail-icon.svg");
+}

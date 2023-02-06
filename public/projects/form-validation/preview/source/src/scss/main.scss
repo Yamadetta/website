@@ -1,0 +1,126 @@
+:root {
+  --white-text-color: #dddddd;
+  --basic-card-bg-color: #2f244b;
+  --basic-card-bg-color-light: #3d2e65;
+  --basic-card-bg-color-light-2: #553d7a;
+  --basic-card-bg-color-light-3: #7f58a5;
+  --basic-card-bg-color-dark: #211837;
+  --basic-card-bg-color-dark-transparent: #0d0819e8;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: linear-gradient(166deg, #5055a8 10%, #96355b 50%, #8544a0 76%);
+  background-repeat: no-repeat;
+}
+
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.btn {
+  width: fit-content;
+  padding: .5em 1em;
+  cursor: pointer;
+
+  border: none;
+
+  color: (var(--white-text-color));
+
+  background-color: var(--basic-card-bg-color);
+  transition: background-color .2s ease-out;
+
+  &:hover {
+    background-color: var(--basic-card-bg-color-light);
+  }
+
+  &:focus-visible,
+  &:hover {
+    outline: 1px solid var(--basic-card-bg-color-light-3);
+  }
+
+
+
+
+  &.light {
+    background-color: var(--basic-card-bg-color-light);
+
+    &:hover {
+      background-color: var(--basic-card-bg-color-light-2);
+    }
+  }
+
+  &.light-2 {
+    background-color: var(--basic-card-bg-color-light-2);
+
+    &:hover {
+      background-color: var(--basic-card-bg-color-light-3);
+    }
+  }
+
+  &:disabled,
+  &[disabled] {
+    background-color: #4d4367;
+    color: #a7a5a5;
+
+    &:hover {
+      background-color: #4d4367;
+      outline: none;
+      cursor: auto;
+    }
+  }
+}
+
+
+input {
+  background-color: var(--basic-card-bg-color-light);
+
+  border: 0;
+  color: var(--white-text-color);
+  padding: .5em .5em;
+  font-size: 1.2rem;
+
+  transition: background-color .2s ease-out;
+
+  &:focus-visible,
+  &:hover {
+    outline: 1px solid var(--basic-card-bg-color-light-3);
+    background-color: var(--basic-card-bg-color-light-2);
+  }
+}
+
+
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ffffffd4;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #683fa8;
+
+  -webkit-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #8051ca;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #333;
+}
+
+::selection {
+  background: #8800bf;
+}
