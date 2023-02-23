@@ -78,9 +78,6 @@
 .modal-window .form .input--dark::-moz-placeholder {
   color: #2c2c2c;
 }
-.modal-window .form .input--dark:-ms-input-placeholder {
-  color: #2c2c2c;
-}
 .modal-window .form .input--dark::placeholder {
   color: #2c2c2c;
 }

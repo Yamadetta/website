@@ -45,4 +45,76 @@ section {
   ::-webkit-scrollbar-thumb:hover {
     background-color: #005ad2;
   }
+}ut;
+}
+.btn:hover {
+  background-color: var(--basic-card-bg-color-light);
+}
+.btn:focus-visible, .btn:hover {
+  outline: 1px solid var(--basic-card-bg-color-light-3);
+}
+.btn.light {
+  background-color: var(--basic-card-bg-color-light);
+}
+.btn.light:hover {
+  background-color: var(--basic-card-bg-color-light-2);
+}
+.btn.light-2 {
+  background-color: var(--basic-card-bg-color-light-2);
+}
+.btn.light-2:hover {
+  background-color: var(--basic-card-bg-color-light-3);
+}
+.btn:disabled, .btn[disabled] {
+  background-color: #4d4367;
+  color: #a7a5a5;
+}
+.btn:disabled:hover, .btn[disabled]:hover {
+  background-color: #4d4367;
+  outline: none;
+  cursor: auto;
+}
+
+input {
+  background-color: var(--basic-card-bg-color-light);
+  border: 0;
+  color: var(--white-text-color);
+  padding: 0.5em 0.5em;
+  font-size: 1.2rem;
+  transition: background-color 0.2s ease-out;
+}
+input:focus-visible, input:hover {
+  outline: 1px solid var(--basic-card-bg-color-light-3);
+  background-color: var(--basic-card-bg-color-light-2);
+}
+
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.831372549);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #683fa8;
+  -webkit-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #8051ca;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #333;
+}
+
+::-moz-selection {
+  background: #8800bf;
+}
+
+::selection {
+  background: #8800bf;
 }

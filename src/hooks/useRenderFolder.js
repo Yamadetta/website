@@ -25,7 +25,7 @@ export const renderFolder = (folderMap) => {
   if (folderMap.name === "source") {
     result =
       /* html */
-      `<div class="folder"> 
+      `<div class="folder">
         <div class="folder__title">
           <img class="folder__icon folder__icon--open" src="${require("@/assets/code-preview-icons/default_root_folder_opened.svg")}" alt="">
           <img class="folder__icon folder__icon--closed" src="${require("@/assets/code-preview-icons/default_root_folder.svg")}" alt="">

@@ -22,7 +22,7 @@
 }
 @media (max-width: 1200px) {
   .left-arrow,
-.right-arrow {
+  .right-arrow {
     display: none;
   }
 }

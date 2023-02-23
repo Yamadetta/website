@@ -1,0 +1,181 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+:root {
+  --white-text-color: #dddddd;
+  --basic-card-bg-color: #2f244b;
+  --basic-card-bg-color-light: #3d2e65;
+  --basic-card-bg-color-light-2: #553d7a;
+  --basic-card-bg-color-light-3: #7f58a5;
+  --basic-card-bg-color-dark: #211837;
+  --basic-card-bg-color-dark-transparent: #0d0819e8;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: linear-gradient(166deg, #5055a8 10%, #96355b 50%, #8544a0 76%);
+  background-repeat: no-repeat;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.btn {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  border: none;
+  color: var(--white-text-color);
+  background-color: var(--basic-card-bg-color);
+  transition: background-color 0.2s ease-out;
+}
+.btn:hover {
+  background-color: var(--basic-card-bg-color-light);
+}
+.btn:focus-visible, .btn:hover {
+  outline: 1px solid var(--basic-card-bg-color-light-3);
+}
+.btn.light {
+  background-color: var(--basic-card-bg-color-light);
+}
+.btn.light:hover {
+  background-color: var(--basic-card-bg-color-light-2);
+}
+.btn.light-2 {
+  background-color: var(--basic-card-bg-color-light-2);
+}
+.btn.light-2:hover {
+  background-color: var(--basic-card-bg-color-light-3);
+}
+.btn:disabled, .btn[disabled] {
+  background-color: #4d4367;
+  color: #a7a5a5;
+}
+.btn:disabled:hover, .btn[disabled]:hover {
+  background-color: #4d4367;
+  outline: none;
+  cursor: auto;
+}
+
+input {
+  background-color: var(--basic-card-bg-color-light);
+  border: 0;
+  color: var(--white-text-color);
+  padding: 0.5em 0.5em;
+  font-size: 1.2rem;
+  transition: background-color 0.2s ease-out;
+}
+input:focus-visible, input:hover {
+  outline: 1px solid var(--basic-card-bg-color-light-3);
+  background-color: var(--basic-card-bg-color-light-2);
+}
+
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.831372549);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #683fa8;
+  -webkit-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #8051ca;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #333;
+}
+
+::-moz-selection {
+  background: #8800bf;
+}
+
+::selection {
+  background: #8800bf;
+}

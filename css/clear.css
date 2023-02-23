@@ -63,7 +63,8 @@ button {
   background: none;
   padding: 0;
   cursor: pointer;
-}�ех ul и il, у которых есть атрибут class */
+}
+/*�ех ul и il, у которых есть атрибут class */
 ul[class],
 ol[class] {
   list-style: none;

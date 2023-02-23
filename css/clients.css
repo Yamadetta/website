@@ -96,14 +96,12 @@
 .reviews__item {
   display: none;
   padding: 0 12px;
-  cursor: -webkit-grab;
   cursor: grab;
 }
 .reviews__item:first-child {
   display: block;
 }
 .reviews__item:active {
-  cursor: -webkit-grabbing;
   cursor: grabbing;
 }
 .reviews__header {

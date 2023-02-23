@@ -35,12 +35,7 @@
   </div>
 </template>
 
-
-
 <!-- https://prismjs.com/download.html#themes=prism-okaidia&languages=markup+css+clike+javascript+css-extras+git+ignore+json+scss&plugins=line-numbers+autolinker+highlight-keywords+inline-color+match-braces -->
-
-
-
 
 <script>
 import { renderFolder } from "@/hooks/useRenderFolder.js";

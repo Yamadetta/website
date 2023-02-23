@@ -56,9 +56,6 @@
 .form .input::-moz-placeholder {
   color: white;
 }
-.form .input:-ms-input-placeholder {
-  color: white;
-}
 .form .input::placeholder {
   color: white;
 }
